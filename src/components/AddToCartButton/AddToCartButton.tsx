@@ -1,6 +1,7 @@
 import styles from './AddToCartButton.module.scss'
 import { Icon } from '@iconify/react'
 import { FC } from 'react'
+import { Icons } from '../../utils/Icons'
 
 interface AddToCartButtonProps {
 	top?: string
@@ -17,7 +18,7 @@ const AddToCartButton: FC<AddToCartButtonProps> = ({
 }) => {
 	return (
 		<button className={styles['add-btn']} style={{ top, left, width, height }}>
-			<Icon icon="carbon:shopping-cart-plus" className={styles['cart-icon']} />
+			<Icon icon={Icons.SHOPPING_CART_ADD} className={styles['cart-icon']} />
 		</button>
 	)
 }

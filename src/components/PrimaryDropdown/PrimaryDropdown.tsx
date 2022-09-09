@@ -3,10 +3,11 @@ import { useState, useRef, FC } from 'react'
 import { useClickOutside } from '../../hooks/useClickOutside'
 import { Icon } from '@iconify/react'
 import cl from 'classnames'
+import { Icons } from '../../utils/Icons'
 
 interface PrimaryDropdownProps {
 	list: { id: number; name: string }[]
-    title: string
+	title: string
 }
 
 const PrimaryDropdown: FC<PrimaryDropdownProps> = ({ list, title }) => {
@@ -33,11 +34,10 @@ const PrimaryDropdown: FC<PrimaryDropdownProps> = ({ list, title }) => {
 		<div className={styles.trigger} onClick={toggleDropdown} ref={triggerRef}>
 			<div className={styles.header}>
 				<p>{title}</p>
-				{isShown ? (
-					<Icon icon="akar-icons:arrow-back-thick" className="icon" />
-				) : (
-					<Icon icon="fluent:more-circle-20-filled" />
-				)}
+				<Icon
+					icon={isShown ? Icons.ARROW_BACK : Icons.SHOW_MORE_CIRCLE}
+					className="icon"
+				/>
 			</div>
 			<div className={cl(styles.dropdown, { [styles.active]: isShown })}>
 				<div

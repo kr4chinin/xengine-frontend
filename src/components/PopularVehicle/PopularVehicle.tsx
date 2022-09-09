@@ -3,6 +3,7 @@ import { Vehicle } from '../../types/Vehicle'
 import styles from './PopularVehicle.module.scss'
 import AddToCartButton from '../AddToCartButton/AddToCartButton'
 import { Icon } from '@iconify/react'
+import { Icons } from '../../utils/Icons'
 
 interface PopularVehicleProps {
 	vehicle: Vehicle
@@ -17,7 +18,7 @@ const PopularVehicle: FC<PopularVehicleProps> = ({ vehicle }) => {
 			<div className={styles.rating}>
 				<p>Rating:</p>
 				<p>{vehicle.rating}</p>
-				<Icon icon="ant-design:star-filled" />
+				<Icon icon={Icons.STAR} />
 			</div>
 		</div>
 	)

@@ -3,6 +3,7 @@ import { useState, useRef } from 'react'
 import { useClickOutside } from '../../hooks/useClickOutside'
 import { Icon } from '@iconify/react'
 import cl from 'classnames'
+import { Icons } from '../../utils/Icons'
 
 const FilterDropdown = () => {
 	const [isShown, setIsShown] = useState(false)
@@ -34,11 +35,10 @@ const FilterDropdown = () => {
 		<div className={styles.trigger} onClick={toggleDropdown} ref={triggerRef}>
 			<div className={styles.header}>
 				<p>Filter</p>
-				{isShown ? (
-					<Icon icon="carbon:filter-remove" className="icon" />
-				) : (
-					<Icon icon="akar-icons:filter" />
-				)}
+				<Icon
+					icon={isShown ? Icons.CLOSE_FILTER : Icons.FILTER}
+					className="icon"
+				/>
 			</div>
 			<div className={cl(styles.dropdown, { [styles.active]: isShown })}>
 				<div
