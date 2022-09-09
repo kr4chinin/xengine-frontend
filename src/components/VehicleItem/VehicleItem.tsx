@@ -5,6 +5,7 @@ import { Icon } from '@iconify/react'
 import { Icons } from '../../utils/Icons'
 import AddToCartButton from '../AddToCartButton/AddToCartButton'
 import HorizontalLine from '../HorizontalLine/HorizontalLine'
+import { convertPrice } from '../../helpers/convertPrice'
 
 interface VehicleItemProps {
 	vehicle: Vehicle
@@ -32,7 +33,7 @@ const VehicleItem: FC<VehicleItemProps> = ({ vehicle }) => {
 						</div>
 						<div className={styles['price-container']}>
 							<p>Price:</p>
-							<p>{vehicle.price}</p>
+							<p>{convertPrice(String(vehicle.price))}</p>
 							<Icon icon={Icons.DOLLAR_CIRCLE} />
 						</div>
 					</div>
@@ -44,7 +45,7 @@ const VehicleItem: FC<VehicleItemProps> = ({ vehicle }) => {
 					</section>
 				</div>
 			</div>
-            <HorizontalLine borderColor='#94a6b7' />
+			<HorizontalLine borderColor="#94a6b7" />
 		</div>
 	)
 }
