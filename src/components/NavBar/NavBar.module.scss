@@ -1,0 +1,60 @@
+@import '../../styles/colorPalette';
+
+.container {
+	width: 100vw;
+	height: 139px;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+    padding: 37px 46px 0 46px;
+
+	.brand-container {
+		display: flex;
+		align-items: center;
+		gap: 5px;
+
+		.logo {
+			width: 81px;
+			height: 81px;
+		}
+
+		.brand {
+			font-style: normal;
+			font-weight: 800;
+			font-size: 35px;
+
+			color: $primary;
+		}
+	}
+
+	.links {
+		list-style: none;
+
+		width: 657px;
+
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		li {
+			font-size: 25px;
+			line-height: 38px;
+		}
+	}
+
+	.sign-up-btn {
+		width: 271px;
+		height: 80px;
+
+		background: $primary;
+		border-radius: 15px;
+        border: none;
+
+        font-weight: 500;
+        color: $font-light;
+
+        font-size: 25px;
+	}
+}
