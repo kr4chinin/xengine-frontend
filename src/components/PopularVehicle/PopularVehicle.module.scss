@@ -1,0 +1,53 @@
+@import '../../styles/colorPalette';
+
+.container {
+    position: relative;
+
+	width: 422px;
+	height: 519px;
+
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.35);
+	border-radius: 10px;
+
+	img {
+		height: 100%;
+		width: 100%;
+
+		object-fit: cover;
+        border-radius: 10px;
+	}
+
+	.learn-more-btn {
+        position: absolute;
+        top: 82%;
+        left: 25%;
+
+		width: 230px;
+		height: 45px;
+
+        border: 1px solid black;
+        border-radius: 33px;
+        font-size: 20px;
+
+        background-color: $secondary;
+
+        transition: 500ms;
+        &:hover {
+            cursor: pointer;
+            scale: 1.1;
+        }
+	}
+
+    .rating {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        top: 92%;
+        left: 37%;
+
+        position: absolute;
+        color: rgba(165, 231, 235, 0.8);
+
+        font-size: 20px;
+    }
+}
