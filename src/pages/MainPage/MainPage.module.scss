@@ -1,0 +1,11 @@
+@import '../../styles/colorPalette';
+
+.container {
+    h2 {
+        color: $font-title;
+
+        font-weight: normal;
+        font-size: 32px;
+        margin-top: 10px;
+    }
+}
