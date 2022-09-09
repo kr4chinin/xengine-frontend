@@ -1,0 +1,20 @@
+@import '../../styles/colorPalette';
+
+.container {
+    h2 {
+        color: $font-title;
+
+		font-weight: normal;
+		font-size: 32px;
+		margin-top: 10px;
+    }
+
+    .controls-container {
+        margin-top: 27px;
+        width: 100%;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
