@@ -1,0 +1,103 @@
+@import '../../styles/colorPalette';
+
+.container {
+    top: 0;
+	left: 0;
+
+	float: left;
+	position: absolute;
+	background: transparent;
+
+    .body {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+
+        padding: 0;
+        color: white;
+        max-width: 640px;
+        font-size: 14px;
+        line-height: 1.4;
+
+        text-align: center;
+        transition: 500ms;
+
+        li {
+            padding: 1em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            position: relative;
+            width: 70px;
+            cursor: pointer;
+            background: $tertiary;
+            text-transform: uppercase;
+            transition: all 0.4s ease-out;
+
+            div {
+                display: inline-block;
+                padding: 25px 0;
+                background: transparent;
+                position: relative;
+
+            }
+
+            svg {
+                fill: $font-light;
+                stroke-width: 2px;
+                width: 50px;
+                height: 50px;
+            }
+        }
+
+        li:after {
+            position: absolute;
+            background: $font-light;
+            color: $tertiary;
+            top: 0;
+            left: 70px;
+            width: 70px;
+            height: 100%;
+            opacity: 0.5;
+            transform: perspective(400px) rotateY(90deg);
+            transform-origin: 0 100%;
+            transition: all 0.4s ease-out;
+        }
+
+        li:nth-child(1):after {
+            content: 'cart';
+            line-height: 88px;
+        }
+
+        li:nth-child(2):after {
+            content: 'home';
+            line-height: 88px;
+        }
+
+        li:nth-child(3):after {
+            content: 'github';
+            line-height: 85px;
+        }
+
+        li:hover {
+            transform: translateX(-70px);
+        }
+
+        li:hover:after {
+            opacity: 1;
+            transform: perspective(400px) rotateY(0deg) scale(1);
+        }
+    }
+
+    .body.hidden {
+        translate: -100%;
+    }
+}
+
+
+
+
