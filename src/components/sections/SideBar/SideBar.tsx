@@ -1,8 +1,8 @@
 import { FC, useEffect } from 'react'
 import styles from './SideBar.module.scss'
-import { ReactComponent as Home } from '../../assets/icons/home.svg'
-import { ReactComponent as Cart } from '../../assets/icons/cart.svg'
-import { ReactComponent as GitHub } from '../../assets/icons/github.svg'
+import { ReactComponent as Home } from '../../../assets/icons/home.svg'
+import { ReactComponent as Cart } from '../../../assets/icons/cart.svg'
+import { ReactComponent as GitHub } from '../../../assets/icons/github.svg'
 import cl from 'classnames'
 
 interface SideBarProps {

@@ -1,5 +1,5 @@
 import PrimaryDropdown from './PrimaryDropdown/PrimaryDropdown'
-import { Brand } from '../types/Brand'
+import { Brand } from '../../types/Brand'
 
 const BrandsDropdown = () => {
 

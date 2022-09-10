@@ -3,8 +3,8 @@ import { Vehicle } from '../../types/Vehicle'
 import { FC } from 'react'
 import { Icon } from '@iconify/react'
 import { Icons } from '../../utils/Icons'
-import AddToCartButton from '../AddToCartButton/AddToCartButton'
-import HorizontalLine from '../HorizontalLine/HorizontalLine'
+import AddToCartButton from '../elements/AddToCartButton/AddToCartButton'
+import HorizontalLine from '../elements/HorizontalLine/HorizontalLine'
 import { convertPrice } from '../../helpers/convertPrice'
 
 interface VehicleItemProps {

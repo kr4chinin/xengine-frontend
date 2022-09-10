@@ -1,7 +1,7 @@
 import styles from './AddToCartButton.module.scss'
 import { Icon } from '@iconify/react'
 import { FC } from 'react'
-import { Icons } from '../../utils/Icons'
+import { Icons } from '../../../utils/Icons'
 
 interface AddToCartButtonProps {
 	top?: string

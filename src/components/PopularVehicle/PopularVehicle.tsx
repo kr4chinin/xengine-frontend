@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { Vehicle } from '../../types/Vehicle'
 import styles from './PopularVehicle.module.scss'
-import AddToCartButton from '../AddToCartButton/AddToCartButton'
+import AddToCartButton from '../elements/AddToCartButton/AddToCartButton'
 import { Icon } from '@iconify/react'
 import { Icons } from '../../utils/Icons'
 

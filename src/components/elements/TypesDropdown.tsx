@@ -1,4 +1,4 @@
-import { Type } from '../types/Type'
+import { Type } from '../../types/Type'
 import PrimaryDropdown from './PrimaryDropdown/PrimaryDropdown'
 
 const TypesDropdown = () => {

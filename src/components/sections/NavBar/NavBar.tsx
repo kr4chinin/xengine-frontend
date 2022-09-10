@@ -1,10 +1,11 @@
 import styles from './NavBar.module.scss'
-import { ReactComponent as Logo } from '../../assets/icons/engine.svg'
+import { ReactComponent as Logo } from '../../../assets/icons/engine.svg'
 import cl from 'classnames'
 import { useEffect, FC } from 'react'
-import PrimaryButton from '../PrimaryButton/PrimaryButton'
+import PrimaryButton from '../../elements/PrimaryButton/PrimaryButton'
 import { useNavigate } from 'react-router-dom'
-import SecondaryButton from '../SecondaryButton/SecondaryButton'
+import SecondaryButton from '../../elements/SecondaryButton/SecondaryButton'
+import { Routes } from '../../../utils/Routes'
 
 interface NavBarProps {
 	isVisible: boolean
@@ -34,26 +35,30 @@ const NavBar: FC<NavBarProps> = ({ isVisible, setIsVisible }) => {
 
 	const navigate = useNavigate()
 
-	function handleSignUp() {
-		navigate('/registration')
+	function handleNavigateSignUp() {
+		navigate(Routes.REGISTRATION)
+	}
+
+	function handleNavigateMain() {
+		navigate(Routes.MAIN)
 	}
 
 	return (
 		<nav className={cl(styles.container, { [styles.visible]: isVisible })}>
-			<div className={styles['brand-container']}>
+			<div className={styles['brand-container']} onClick={handleNavigateMain}>
 				<Logo className={styles.logo} />
 				<h1 className={styles.brand}>XEngine</h1>
 			</div>
 			<ul className={styles.links}>
-				<li>Home</li>
+				<li onClick={handleNavigateMain}>Home</li>
 				<li>Types</li>
 				<li>Brands</li>
 				<li>Your cart</li>
 			</ul>
 			{isVisible ? (
-				<SecondaryButton title="Sign up" onClick={handleSignUp} />
+				<SecondaryButton title="Sign up" onClick={handleNavigateSignUp} />
 			) : (
-				<PrimaryButton title="Sign up" onClick={handleSignUp} />
+				<PrimaryButton title="Sign up" onClick={handleNavigateSignUp} />
 			)}
 		</nav>
 	)

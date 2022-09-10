@@ -1,11 +1,16 @@
-import styles from './FilterDropdown.module.scss'
-import { useState, useRef } from 'react'
-import { useClickOutside } from '../../hooks/useClickOutside'
+import styles from './PrimaryDropdown.module.scss'
+import { useState, useRef, FC } from 'react'
+import { useClickOutside } from '../../../hooks/useClickOutside'
 import { Icon } from '@iconify/react'
 import cl from 'classnames'
-import { Icons } from '../../utils/Icons'
+import { Icons } from '../../../utils/Icons'
 
-const FilterDropdown = () => {
+interface PrimaryDropdownProps {
+	list: { id: number; name: string }[]
+	title: string
+}
+
+const PrimaryDropdown: FC<PrimaryDropdownProps> = ({ list, title }) => {
 	const [isShown, setIsShown] = useState(false)
 
 	const triggerRef = useRef<HTMLDivElement>(null)
@@ -25,18 +30,12 @@ const FilterDropdown = () => {
 
 	useClickOutside(triggerRef, dropdownRef, handleClose)
 
-	const options: { id: number; name: string }[] = [
-		{ id: 1, name: 'Price' },
-		{ id: 2, name: 'Name' },
-		{ id: 3, name: 'Price' }
-	]
-
 	return (
 		<div className={styles.trigger} onClick={toggleDropdown} ref={triggerRef}>
 			<div className={styles.header}>
-				<p>Filter</p>
+				<p>{title}</p>
 				<Icon
-					icon={isShown ? Icons.CLOSE_FILTER : Icons.FILTER}
+					icon={isShown ? Icons.ARROW_BACK : Icons.SHOW_MORE_CIRCLE}
 					className="icon"
 				/>
 			</div>
@@ -47,8 +46,8 @@ const FilterDropdown = () => {
 					onClick={handleStopPropagation}
 				>
 					<ul>
-						{options.map(option => (
-							<li key={option.id}>{option.name}</li>
+						{list.map(el => (
+							<li key={el.id}>{el.name}</li>
 						))}
 					</ul>
 				</div>
@@ -57,4 +56,4 @@ const FilterDropdown = () => {
 	)
 }
 
-export default FilterDropdown
+export default PrimaryDropdown
