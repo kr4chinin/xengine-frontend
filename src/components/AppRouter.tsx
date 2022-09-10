@@ -1,4 +1,3 @@
-import { useReducer } from "react"
 import { authRoutes, publicRoutes } from "../routes"
 import { Routes, Route } from "react-router-dom"
 
