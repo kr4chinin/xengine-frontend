@@ -62,7 +62,7 @@ const VehiclesList = () => {
 
 	return (
         <div className={styles.container}>
-            {vehicles.map(vehicle => (<VehicleItem vehicle={vehicle} />))}
+            {vehicles.map(vehicle => (<VehicleItem vehicle={vehicle} key={vehicle.id}/>))}
         </div>
     )
 }

@@ -38,7 +38,7 @@ const PopularVehiclesList = () => {
 			<h2>Most popular vehicles</h2>
 			<div className={styles['vehicles-container']}>
 				{popularVehicles.map(vehicle => (
-					<PopularVehicle vehicle={vehicle} />
+					<PopularVehicle vehicle={vehicle} key={vehicle.id}/>
 				))}
 			</div>
 		</div>
