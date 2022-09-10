@@ -1,0 +1,23 @@
+@import '../../styles/colorPalette';
+
+.container {
+	.header {
+        display: flex;
+        align-items: center;
+		h2 {
+			color: $font-title;
+
+			font-weight: normal;
+			font-size: 32px;
+			margin-top: 10px;
+		}
+
+        svg {
+            margin-top: 5px;
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+        margin-bottom: 50px;
+	}
+}

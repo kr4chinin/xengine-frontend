@@ -43,6 +43,10 @@ const NavBar: FC<NavBarProps> = ({ isVisible, setIsVisible }) => {
 		navigate(Routes.MAIN)
 	}
 
+	function handleNavigateCart() {
+		navigate(Routes.CART)
+	}
+
 	return (
 		<nav className={cl(styles.container, { [styles.visible]: isVisible })}>
 			<div className={styles['brand-container']} onClick={handleNavigateMain}>
@@ -53,7 +57,7 @@ const NavBar: FC<NavBarProps> = ({ isVisible, setIsVisible }) => {
 				<li onClick={handleNavigateMain}>Home</li>
 				<li>Types</li>
 				<li>Brands</li>
-				<li>Your cart</li>
+				<li onClick={handleNavigateCart}>Your cart</li>
 			</ul>
 			{isVisible ? (
 				<SecondaryButton title="Sign up" onClick={handleNavigateSignUp} />
