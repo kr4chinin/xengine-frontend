@@ -1,0 +1,13 @@
+@import '../../styles/colorPalette';
+
+.secondary-btn {
+	background: transparent;
+	color: $font-light;
+
+	height: 48px;
+	width: 140px;
+
+	border: 2px solid $font-light;
+    border-radius: 15px;
+	font-size: 20px;
+}

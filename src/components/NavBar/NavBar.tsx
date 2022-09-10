@@ -2,6 +2,9 @@ import styles from './NavBar.module.scss'
 import { ReactComponent as Logo } from '../../assets/icons/engine.svg'
 import cl from 'classnames'
 import { useEffect, FC } from 'react'
+import PrimaryButton from '../PrimaryButton/PrimaryButton'
+import { useNavigate } from 'react-router-dom'
+import SecondaryButton from '../SecondaryButton/SecondaryButton'
 
 interface NavBarProps {
 	isVisible: boolean
@@ -18,8 +21,8 @@ const NavBar: FC<NavBarProps> = ({ isVisible, setIsVisible }) => {
 					setIsVisible(false)
 				}
 			} else {
-                return
-            }
+				return
+			}
 		}
 
 		document.addEventListener('scroll', toggleVisibility)
@@ -28,6 +31,12 @@ const NavBar: FC<NavBarProps> = ({ isVisible, setIsVisible }) => {
 			document.removeEventListener('scroll', toggleVisibility)
 		}
 	}, [setIsVisible])
+
+	const navigate = useNavigate()
+
+	function handleSignUp() {
+		navigate('/registration')
+	}
 
 	return (
 		<nav className={cl(styles.container, { [styles.visible]: isVisible })}>
@@ -41,7 +50,11 @@ const NavBar: FC<NavBarProps> = ({ isVisible, setIsVisible }) => {
 				<li>Brands</li>
 				<li>Your cart</li>
 			</ul>
-			<button className={styles['sign-up-btn']}>Sign up</button>
+			{isVisible ? (
+				<SecondaryButton title="Sign up" onClick={handleSignUp} />
+			) : (
+				<PrimaryButton title="Sign up" onClick={handleSignUp} />
+			)}
 		</nav>
 	)
 }

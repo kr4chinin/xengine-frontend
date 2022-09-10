@@ -1,0 +1,20 @@
+@import '../../styles/colorPalette';
+
+.primary-btn {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 271px;
+    height: 80px;
+
+    background: $primary;
+    border-radius: 15px;
+    border: none;
+
+    font-weight: 500;
+    color: $font-light;
+
+    font-size: 25px;
+}
