@@ -12,7 +12,7 @@ const MainPage = () => {
 	const [isSideBarVisible, setIsSideBarVisible] = useState(false)
 
 	return (
-		<div className={styles.container}>
+		<div>
 			<NavBar isVisible={isNavBarVisible} setIsVisible={setIsNavBarVisible} />
 			<HorizontalLine marginTop="200px" />
 			<PopularVehiclesList />

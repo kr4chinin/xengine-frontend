@@ -3,11 +3,11 @@
 .trigger {
 	position: relative;
 	background-color: $primary-light;
-	width: 444px;
-	height: 89px;
+	width: 377px;
+	height: 76px;
 
 	cursor: pointer;
-	border-radius: 15px;
+	border-radius: 13px;
 	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
     z-index: 1;
@@ -16,35 +16,35 @@
 		width: 100%;
 		height: 100%;
 
-		padding: 0 26px 0 26px;
+		padding: 0 22px 0 22px;
 
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 
-		font-size: 32px;
+		font-size: 27px;
 		color: $font-title;
 
 		.icon {
-			width: 46px;
-			height: 46px;
+			width: 39px;
+			height: 39px;
 		}
 	}
 
 	.dropdown {
 		position: absolute;
-		width: 444px;
-		min-height: 401px;
+		width: 377px;
+		min-height: 341px;
 
 		transform: translateY(5%);
-		border-radius: 15px;
+		border-radius: 13px;
 
 		overflow: hidden;
 
 		pointer-events: none;
 
 		.menu {
-			border-radius: 15px;
+			border-radius: 13px;
 			width: 100%;
 			height: 100%;
 
@@ -56,7 +56,7 @@
 			transition: 500ms ease-out;
 
 			background-color: $primary-light;
-			padding: 26px;
+			padding: 22px;
 
 			ul {
 				list-style: none;
@@ -64,26 +64,26 @@
 				margin: 0;
 				display: flex;
 				flex-direction: column;
-				gap: 16px;
+				gap: 14px;
 				align-items: center;
 				justify-content: center;
 				height: 100%;
 				width: 100%;
 
 				li {
-					width: 403px;
-					height: 68px;
+					width: 340px;
+					height: 59px;
 
 					display: flex;
 					align-items: center;
 					justify-content: flex-start;
 
-					padding: 0 16px 0 16px;
+					padding: 0 14px 0 14px;
 
 					background-color: whitesmoke;
 
 					border-radius: 5px;
-					font-size: 28px;
+					font-size: 24px;
 					color: $font-main;
 				}
 			}

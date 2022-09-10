@@ -1,5 +1,5 @@
 import NavBar from '../../components/sections/NavBar/NavBar'
-import PrimaryInput from '../../components/PrimaryInput/PrimaryInput'
+import PrimaryInput from '../../components/elements/PrimaryInput/PrimaryInput'
 import styles from './AuthPage.module.scss'
 import { useState } from 'react'
 import PrimaryButton from '../../components/elements/PrimaryButton/PrimaryButton'

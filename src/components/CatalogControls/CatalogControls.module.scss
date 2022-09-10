@@ -10,11 +10,13 @@
     }
 
     .controls-container {
-        margin-top: 27px;
+        margin-top: 50px;
         width: 100%;
 
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
+
+        gap: 22px;
     }
 }
