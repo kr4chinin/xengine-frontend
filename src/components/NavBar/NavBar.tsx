@@ -4,19 +4,22 @@ import cl from 'classnames'
 import { useEffect, FC } from 'react'
 
 interface NavBarProps {
-    isVisible: boolean
-    setIsVisible: (isVisible: boolean) => void
+	isVisible: boolean
+	setIsVisible?: (isVisible: boolean) => void
 }
 
-const NavBar: FC<NavBarProps> = ({isVisible, setIsVisible}) => {
-
+const NavBar: FC<NavBarProps> = ({ isVisible, setIsVisible }) => {
 	useEffect(() => {
 		const toggleVisibility = () => {
-			if (window.pageYOffset > 80) {
-				setIsVisible(true)
+			if (setIsVisible) {
+				if (window.pageYOffset > 80) {
+					setIsVisible(true)
+				} else {
+					setIsVisible(false)
+				}
 			} else {
-				setIsVisible(false)
-			}
+                return
+            }
 		}
 
 		document.addEventListener('scroll', toggleVisibility)
