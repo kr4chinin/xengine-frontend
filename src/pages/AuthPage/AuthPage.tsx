@@ -1,30 +1,50 @@
 import NavBar from '../../components/NavBar/NavBar'
+import PrimaryInput from '../../components/PrimaryInput/PrimaryInput'
 import styles from './AuthPage.module.scss'
+import { useState } from 'react'
+import PrimaryButton from '../../components/PrimaryButton/PrimaryButton'
 
 const AuthPage = () => {
+	const [email, setEmail] = useState('')
+	const [password, setPassword] = useState('')
+
+	function handleChangeEmail(e: React.ChangeEvent<HTMLInputElement>) {
+		setEmail(e.target.value)
+	}
+
+	function handleChangePassword(e: React.ChangeEvent<HTMLInputElement>) {
+		setPassword(e.target.value)
+	}
+
 	return (
-		<div className={styles.container}>
+		<>
 			<NavBar isVisible={true} />
-			<section>
+			<section className={styles.container}>
 				<h2>Authorization</h2>
-				<div>
-					<div>
-						<input type="text" placeholder="Enter email..." id="email" />
-						<label htmlFor="email">Email</label>
-						<input
-							type="password"
-							placeholder="Enter password..."
-							id="password"
+				<div className={styles['auth-container']}>
+					<div className={styles['input-container']}>
+						<PrimaryInput
+							type="text"
+							label="Email"
+							value={email}
+							onChange={handleChangeEmail}
+							placeholder="Enter email..."
 						/>
-						<label htmlFor="password">Password</label>
+						<PrimaryInput
+							type="password"
+							label="Password"
+							value={password}
+							onChange={handleChangePassword}
+							placeholder="Enter password..."
+						/>
 					</div>
-                    <button>Log in</button>
+					<PrimaryButton title='Sign up' onClick={() => {}}/>
 				</div>
-				<p>
+				<footer>
 					Don't have an account? <span>Sign up!</span>
-				</p>
+				</footer>
 			</section>
-		</div>
+		</>
 	)
 }
 
