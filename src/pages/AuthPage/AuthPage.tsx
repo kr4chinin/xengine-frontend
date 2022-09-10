@@ -3,10 +3,16 @@ import PrimaryInput from '../../components/PrimaryInput/PrimaryInput'
 import styles from './AuthPage.module.scss'
 import { useState } from 'react'
 import PrimaryButton from '../../components/PrimaryButton/PrimaryButton'
+import { useLocation } from 'react-router-dom'
+import { Routes } from '../../utils/Routes'
+import { useNavigate } from 'react-router-dom'
 
 const AuthPage = () => {
 	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
+
+	const navigate = useNavigate()
+	const location = useLocation()
 
 	function handleChangeEmail(e: React.ChangeEvent<HTMLInputElement>) {
 		setEmail(e.target.value)
@@ -15,6 +21,16 @@ const AuthPage = () => {
 	function handleChangePassword(e: React.ChangeEvent<HTMLInputElement>) {
 		setPassword(e.target.value)
 	}
+
+	function handleNavigateLogin() {
+		navigate(Routes.LOGIN)
+	}
+
+	function handleNavigateRegistration() {
+		navigate(Routes.REGISTRATION)
+	}
+
+    const isRegistration = location.pathname === Routes.REGISTRATION
 
 	return (
 		<>
@@ -38,10 +54,20 @@ const AuthPage = () => {
 							placeholder="Enter password..."
 						/>
 					</div>
-					<PrimaryButton title='Sign up' onClick={() => {}}/>
+					<PrimaryButton title={isRegistration ? 'Sign up' : 'Log in'} onClick={() => {}} />
 				</div>
 				<footer>
-					Don't have an account? <span>Sign up!</span>
+					{isRegistration? (
+						<p>
+							Already have an account?{' '}
+							<span onClick={handleNavigateLogin}>Log in!</span>
+						</p>
+					) : (
+						<p>
+							Don't have an account?{' '}
+							<span onClick={handleNavigateRegistration}>Sign up!</span>
+						</p>
+					)}
 				</footer>
 			</section>
 		</>
