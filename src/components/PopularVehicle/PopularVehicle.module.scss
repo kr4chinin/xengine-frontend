@@ -50,4 +50,11 @@
 
         font-size: 20px;
     }
+
+    transition: 500ms;
+
+    &:hover {
+        cursor: pointer;
+        transform: translateY(-9px);
+    }
 }
