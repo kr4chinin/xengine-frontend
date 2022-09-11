@@ -16,7 +16,7 @@ const VehicleItem: FC<VehicleItemProps> = ({ vehicle }) => {
 		<div className={styles['global-container']}>
 			<div className={styles.container}>
 				<div className={styles['image-container']}>
-					<img src={vehicle.img} alt={vehicle.name} />
+					<img src={import.meta.env.VITE_API_URL + vehicle.img} alt={vehicle.name} />
 					<AddToCartButton />
 				</div>
 				<div className={styles.info}>
