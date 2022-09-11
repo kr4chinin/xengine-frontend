@@ -1,18 +1,25 @@
+import { useQuery } from '@tanstack/react-query'
+import { useState } from 'react'
+import { fetchTypes } from '../../api/vehicleAPI'
 import { Type } from '../../types/Type'
 import PrimaryDropdown from './PrimaryDropdown/PrimaryDropdown'
 
 const TypesDropdown = () => {
+	const [types, setTypes] = useState<Type[]>([])
 
-	const types: Type[] = [
-		{ id: 1, name: 'Type 1' },
-		{ id: 2, name: 'Type 2' },
-		{ id: 3, name: 'Type 3' },
-		{ id: 4, name: 'Type 4' },
-		{ id: 5, name: 'Type 5' }
-	]
+	const { isLoading, isError } = useQuery(['types'], () => fetchTypes(), {
+		onSuccess(data) {
+			setTypes(data)
+		}
+	})
 
 	return (
-        <PrimaryDropdown title='Types' list={types}/>
+		<PrimaryDropdown
+			title="Types"
+			list={types}
+			isLoading={isLoading}
+			isError={isError}
+		/>
 	)
 }
 

@@ -12,7 +12,7 @@ const MainPage = () => {
 	const [isNavBarVisible, setIsNavBarVisible] = useState(false)
 	const [isSideBarVisible, setIsSideBarVisible] = useState(false)
 
-    const vehicles: Vehicle[] = [
+	const vehicles: Vehicle[] = [
 		{
 			id: 1,
 			name: 'Vehicle 1',
@@ -76,7 +76,7 @@ const MainPage = () => {
 			<PopularVehiclesList />
 			<HorizontalLine marginTop="60px" />
 			<CatalogControls />
-			<VehiclesList vehicles={vehicles}/>
+			<VehiclesList vehicles={vehicles} />
 			<SideBar
 				isVisible={isSideBarVisible}
 				setIsVisible={setIsSideBarVisible}

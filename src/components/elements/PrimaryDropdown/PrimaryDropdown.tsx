@@ -5,9 +5,11 @@ import { Icon } from '@iconify/react'
 import cl from 'classnames'
 import { Icons } from '../../../utils/Icons'
 import { ProgressBar } from 'react-loader-spinner'
+import { Type } from '../../../types/Type'
+import { Brand } from '../../../types/Brand'
 
 interface PrimaryDropdownProps {
-	list: { id: number; name: string }[]
+	list: Type[] | Brand[]
 	title: string
 	isLoading?: boolean
 	isError?: boolean
@@ -53,7 +55,7 @@ const PrimaryDropdown: FC<PrimaryDropdownProps> = ({
 					ref={dropdownRef}
 					onClick={handleStopPropagation}
 				>
-					{!isError ? (
+					{isError ? (
 						<p className={styles['error-message']}>❌ Error occured!</p>
 					) : (
 						<ul>
