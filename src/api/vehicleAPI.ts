@@ -33,4 +33,9 @@ export const fetchVehicles = async (typeId: number | null, brandId: number | nul
     return data
 }
 
+export const fetchPopularVehicles = async () => {
+    const { data } = await $host.get<Vehicle[]>('api/vehicle/popular')
+    return data
+}
+
 

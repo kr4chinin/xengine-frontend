@@ -12,7 +12,7 @@ interface PopularVehicleProps {
 const PopularVehicle: FC<PopularVehicleProps> = ({ vehicle }) => {
 	return (
 		<div className={styles.container}>
-			<img src={vehicle.img} alt={vehicle.name} />
+			<img src={import.meta.env.VITE_API_URL + vehicle.img} alt={vehicle.name} />
 			<AddToCartButton />
 			<button className={styles['learn-more-btn']}>Learn more...</button>
 			<div className={styles.rating}>
