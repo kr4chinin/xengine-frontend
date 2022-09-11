@@ -7,6 +7,8 @@ import { Icons } from '../../../utils/Icons'
 import { ProgressBar } from 'react-loader-spinner'
 import { Type } from '../../../types/Type'
 import { Brand } from '../../../types/Brand'
+import vehicle from '../../../store/VehicleStore'
+import { observer } from 'mobx-react-lite'
 
 interface PrimaryDropdownProps {
 	list: Type[] | Brand[]
@@ -15,61 +17,71 @@ interface PrimaryDropdownProps {
 	isError?: boolean
 }
 
-const PrimaryDropdown: FC<PrimaryDropdownProps> = ({
-	list,
-	title,
-	isError = false,
-	isLoading = false
-}) => {
-	const [isShown, setIsShown] = useState(false)
+const PrimaryDropdown: FC<PrimaryDropdownProps> = observer(
+	({ list, title, isError = false, isLoading = false }) => {
+		const [isShown, setIsShown] = useState(false)
 
-	const triggerRef = useRef<HTMLDivElement>(null)
-	const dropdownRef = useRef<HTMLDivElement>(null)
+		const triggerRef = useRef<HTMLDivElement>(null)
+		const dropdownRef = useRef<HTMLDivElement>(null)
 
-	function toggleDropdown() {
-		setIsShown(prev => !prev)
-	}
+		useClickOutside(triggerRef, dropdownRef, handleClose)
 
-	function handleStopPropagation(e: React.MouseEvent<HTMLDivElement>) {
-		e.stopPropagation()
-	}
+		function toggleDropdown() {
+			setIsShown(prev => !prev)
+		}
 
-	function handleClose() {
-		setIsShown(false)
-	}
+		function handleStopPropagation(e: React.MouseEvent<HTMLDivElement>) {
+			e.stopPropagation()
+		}
 
-	useClickOutside(triggerRef, dropdownRef, handleClose)
+		function handleClose() {
+			setIsShown(false)
+		}
 
-	return (
-		<div className={styles.trigger} onClick={toggleDropdown} ref={triggerRef}>
-			<div className={styles.header}>
-				<p>{title}</p>
-				<Icon
-					icon={isShown ? Icons.ARROW_BACK : Icons.SHOW_MORE_CIRCLE}
-					className="icon"
-				/>
-			</div>
-			<div className={cl(styles.dropdown, { [styles.active]: isShown })}>
-				<div
-					className={cl(styles.menu, { [styles.active]: isShown })}
-					ref={dropdownRef}
-					onClick={handleStopPropagation}
-				>
-					{isError ? (
-						<p className={styles['error-message']}>❌ Error occured!</p>
-					) : (
-						<ul>
-							{isLoading ? (
-								<ProgressBar borderColor="whitesmoke" barColor="#5878A9" />
-							) : (
-								list?.map(el => <li key={el.id}>{el.name}</li>)
-							)}
-						</ul>
-					)}
+		function handleSetSelected(el: Type | Brand) {
+			if (title === 'Types') {
+				vehicle.setSelectedType(el as Type)
+			}
+			if (title === 'Brands') {
+				vehicle.setSelectedBrand(el as Brand)
+			}
+		}
+
+		return (
+			<div className={styles.trigger} onClick={toggleDropdown} ref={triggerRef}>
+				<div className={styles.header}>
+					<p>{title}</p>
+					<Icon
+						icon={isShown ? Icons.ARROW_BACK : Icons.SHOW_MORE_CIRCLE}
+						className="icon"
+					/>
+				</div>
+				<div className={cl(styles.dropdown, { [styles.active]: isShown })}>
+					<div
+						className={cl(styles.menu, { [styles.active]: isShown })}
+						ref={dropdownRef}
+						onClick={handleStopPropagation}
+					>
+						{!isError && !isLoading && (
+							<ul>
+								{list?.map(el => (
+									<li key={el.id} onClick={() => handleSetSelected(el)}>
+										{el.name}
+									</li>
+								))}
+							</ul>
+						)}
+						{isError && (
+							<p className={styles['error-message']}>❌ Error occured!</p>
+						)}
+						{isLoading && (
+							<ProgressBar borderColor="whitesmoke" barColor="#5878A9" />
+						)}
+					</div>
 				</div>
 			</div>
-		</div>
-	)
-}
+		)
+	}
+)
 
 export default PrimaryDropdown
