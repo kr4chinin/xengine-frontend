@@ -26,10 +26,10 @@ const VehiclesList: FC<VehicleListProps> = ({
 				colors={['#5878A9', '#ADD1DF', '#5878A9']}
 				height={100}
 				width={200}
-				visible={!isLoading}
+				visible={isLoading}
 				wrapperStyle={{ alignSelf: 'center' }}
 			/>
-			{!isError && <p>❌ Something went wrong...</p>}
+			{isError && <p>❌ Something went wrong...</p>}
 		</div>
 	)
 }

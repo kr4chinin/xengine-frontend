@@ -7,8 +7,8 @@ class VehicleStore {
 	private _types: Type[]
 	private _brands: Brand[]
 	private _vehicles: Vehicle[]
-	private _selectedType: Type | {}
-	private _selectedBrand: Brand | {}
+	private _selectedType: Type | null
+	private _selectedBrand: Brand | null
 	private _page: number
 	private _totalCount: number
 	private _limit: number
@@ -17,8 +17,8 @@ class VehicleStore {
 		this._types = []
 		this._brands = []
 		this._vehicles = []
-		this._selectedType = {}
-		this._selectedBrand = {}
+		this._selectedType = null
+		this._selectedBrand = null
 		this._page = 1
 		this._totalCount = 0
 		this._limit = 2
@@ -37,12 +37,12 @@ class VehicleStore {
 		this._vehicles = vehicles
 	}
 
-	setSelectedType(type: Type) {
+	setSelectedType(type: Type | null) {
 		this.setPage(1)
 		this._selectedType = type
 	}
 
-	setSelectedBrand(brand: Brand) {
+	setSelectedBrand(brand: Brand | null) {
 		this.setPage(1)
 		this._selectedBrand = brand
 	}

@@ -10,7 +10,7 @@
 	border-radius: 13px;
 	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
-    z-index: 1;
+	z-index: 1;
 
 	.header {
 		width: 100%;
@@ -86,12 +86,17 @@
 					font-size: 24px;
 					color: $font-main;
 				}
+
+				li.active {
+					background-color: rgba($primary, 0.45);
+					border: 2px solid $primary;
+				}
 			}
 
-            .error-message {
-                font-size: 24px;
-                color: $tertiary;
-            }
+			.error-message {
+				font-size: 24px;
+				color: $tertiary;
+			}
 		}
 
 		.menu.active {
@@ -109,6 +114,6 @@
 
 	&:hover {
 		cursor: pointer;
-        scale: 1.05;
+		scale: 1.05;
 	}
 }

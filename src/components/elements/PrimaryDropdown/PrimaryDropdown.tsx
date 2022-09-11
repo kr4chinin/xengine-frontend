@@ -40,10 +40,14 @@ const PrimaryDropdown: FC<PrimaryDropdownProps> = observer(
 
 		function handleSetSelected(el: Type | Brand) {
 			if (title === 'Types') {
-				vehicle.setSelectedType(el as Type)
+				vehicle.selectedType?.id === el.id
+					? vehicle.setSelectedType(null)
+					: vehicle.setSelectedType(el)
 			}
 			if (title === 'Brands') {
-				vehicle.setSelectedBrand(el as Brand)
+				vehicle.selectedBrand?.id === el.id
+					? vehicle.setSelectedBrand(null)
+					: vehicle.setSelectedBrand(el)
 			}
 		}
 
@@ -62,10 +66,25 @@ const PrimaryDropdown: FC<PrimaryDropdownProps> = observer(
 						ref={dropdownRef}
 						onClick={handleStopPropagation}
 					>
+						{/* Huge logic expression in <li> has this underlying logic: if title is 'Types' than append active class to the current <li> if its id equals to selectedType's id, 
+                        otherwise we do the same checks for the brand */}
+
 						{!isError && !isLoading && (
 							<ul>
 								{list?.map(el => (
-									<li key={el.id} onClick={() => handleSetSelected(el)}>
+									<li
+										key={el.id}
+										onClick={() => handleSetSelected(el)}
+										className={
+											title === 'Types'
+												? el.id === vehicle.selectedType?.id
+													? styles.active
+													: ''
+												: el.id === vehicle.selectedBrand?.id
+												? styles.active
+												: ''
+										}
+									>
 										{el.name}
 									</li>
 								))}
