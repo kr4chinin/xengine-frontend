@@ -3,5 +3,6 @@ export enum Routes {
     LOGIN = '/login',
     REGISTRATION = '/registration',
     CART = '/cart',
-    DEVICE = '/device'
+    DEVICE = '/device',
+    ADMIN = '/admin'
 }
