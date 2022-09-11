@@ -5,4 +5,6 @@ export type Vehicle = {
     price: number
     img: string
     description: string
+    typeId: number,
+    brandId: number
 }

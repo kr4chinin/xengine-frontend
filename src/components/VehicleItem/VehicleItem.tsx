@@ -6,24 +6,58 @@ import { Icons } from '../../utils/Icons'
 import AddToCartButton from '../elements/AddToCartButton/AddToCartButton'
 import HorizontalLine from '../elements/HorizontalLine/HorizontalLine'
 import { convertPrice } from '../../helpers/convertPrice'
+import { useQuery } from '@tanstack/react-query'
+import { fetchBrand, fetchType } from '../../api/vehicleAPI'
+import { Type } from '../../types/Type'
+import { ThreeDots } from 'react-loader-spinner'
+import { Brand } from '../../types/Brand'
 
 interface VehicleItemProps {
 	vehicle: Vehicle
 }
 
 const VehicleItem: FC<VehicleItemProps> = ({ vehicle }) => {
+	const {
+		data: type,
+		isLoading: isTypeLoading,
+		isError: isTypeError
+	} = useQuery<Type>(['type', vehicle.typeId], () => fetchType(vehicle.typeId))
+
+	const {
+		data: brand,
+		isLoading: isBrandLoading,
+		isError: isBrandError
+	} = useQuery<Brand>(['brand', vehicle.brandId], () =>
+		fetchBrand(vehicle.brandId)
+	)
+
 	return (
 		<div className={styles['global-container']}>
 			<div className={styles.container}>
 				<div className={styles['image-container']}>
-					<img src={import.meta.env.VITE_API_URL + vehicle.img} alt={vehicle.name} />
+					<img
+						src={import.meta.env.VITE_API_URL + vehicle.img}
+						alt={vehicle.name}
+					/>
 					<AddToCartButton />
 				</div>
 				<div className={styles.info}>
 					<div className={styles.main}>
-						<p className={styles.name}>{vehicle.name}</p>
-						<p className={styles.type}>Type</p>
-						<p className={styles.brand}>Brand</p>
+						<div className={styles.name}>{vehicle.name}</div>
+						<div className={styles.type}>
+							{!isTypeLoading && !isTypeError && type?.name}
+							{isTypeLoading && (
+								<ThreeDots width={45} height={45} color="#5878A9" />
+							)}
+							{isTypeError && <p>Error 🚫</p>}
+						</div>
+						<div className={styles.brand}>
+							{!isBrandLoading && !isBrandError && brand?.name}
+							{isBrandLoading && (
+								<ThreeDots width={45} height={45} color="#5878A9" />
+							)}
+							{isBrandError && <p>Error 🚫</p>}
+						</div>
 					</div>
 					<div className={styles.secondary}>
 						<div className={styles['rating-container']}>
