@@ -11,8 +11,6 @@ const PopularVehiclesList = () => {
 		isError
 	} = useQuery<Vehicle[]>(['popular-vehicles'], () => fetchPopularVehicles())
 
-	console.log(popularVehicles)
-
 	return (
 		<div className={styles.container}>
 			<h2>Most popular vehicles</h2>

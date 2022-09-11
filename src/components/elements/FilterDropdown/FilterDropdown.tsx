@@ -4,6 +4,8 @@ import { useClickOutside } from '../../../hooks/useClickOutside'
 import { Icon } from '@iconify/react'
 import cl from 'classnames'
 import { Icons } from '../../../utils/Icons'
+import vehicle from '../../../store/VehicleStore'
+import { SortBy } from '../../../utils/SortBy'
 
 const FilterDropdown = () => {
 	const [isShown, setIsShown] = useState(false)
@@ -25,10 +27,22 @@ const FilterDropdown = () => {
 
 	useClickOutside(triggerRef, dropdownRef, handleClose)
 
-	const options: { id: number; name: string }[] = [
-		{ id: 1, name: 'Price' },
-		{ id: 2, name: 'Name' },
-		{ id: 3, name: 'Price' }
+	const options: { id: number; name: string; onClick: () => void }[] = [
+		{
+			id: 1,
+			name: 'Price',
+			onClick: () => vehicle.setSort(SortBy.PRICE_DESCENDING)
+		},
+		{
+			id: 2,
+			name: 'Name',
+			onClick: () => vehicle.setSort(SortBy.NAME_ASCENDING)
+		},
+		{
+			id: 3,
+			name: 'Rating',
+			onClick: () => vehicle.setSort(SortBy.RATING_DESCENDING)
+		}
 	]
 
 	return (
@@ -48,7 +62,9 @@ const FilterDropdown = () => {
 				>
 					<ul>
 						{options.map(option => (
-							<li key={option.id}>{option.name}</li>
+							<li key={option.id} onClick={option.onClick}>
+								{option.name}
+							</li>
 						))}
 					</ul>
 				</div>

@@ -23,12 +23,13 @@ export const fetchBrand = async (id: number) => {
     return data
 }
 
-export const fetchVehicles = async (typeId: number | null, brandId: number | null, page = 1, limit = 5) => {
+export const fetchVehicles = async (typeId: number | null, brandId: number | null, page = 1, limit = 5, sort='') => {
     const { data } = await $host.get<{rows: Vehicle[], count: number}>('api/vehicle', { params: {
         typeId,
         brandId,
         page,
-        limit
+        limit,
+        sort
     }})
     return data
 }

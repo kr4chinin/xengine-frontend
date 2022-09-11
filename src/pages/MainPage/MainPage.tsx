@@ -19,18 +19,26 @@ const MainPage = observer(() => {
 	const [vehicles, setVehicles] = useState<Vehicle[]>([])
 
 	const { isLoading, isError } = useQuery(
-		['vehicles', vehicle.selectedType, vehicle.selectedBrand, vehicle.page, vehicle.limit],
+		[
+			'vehicles',
+			vehicle.selectedType,
+			vehicle.selectedBrand,
+			vehicle.page,
+			vehicle.limit,
+			vehicle.sort
+		],
 		() =>
 			fetchVehicles(
 				vehicle.selectedType?.id ?? null,
-				vehicle.selectedBrand?.id ?? null, 
+				vehicle.selectedBrand?.id ?? null,
 				vehicle.page,
-				vehicle.limit
+				vehicle.limit,
+				vehicle.sort
 			),
 		{
 			onSuccess(data) {
 				setVehicles(data.rows)
-                vehicle.setTotalCount(data.count)
+				vehicle.setTotalCount(data.count)
 			}
 		}
 	)
@@ -51,7 +59,7 @@ const MainPage = observer(() => {
 				isVisible={isSideBarVisible}
 				setIsVisible={setIsSideBarVisible}
 			/>
-            <PaginationBar />
+			<PaginationBar />
 		</div>
 	)
 })
