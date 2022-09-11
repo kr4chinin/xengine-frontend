@@ -5,7 +5,7 @@ const $host = axios.create({
 })
 
 const $authHost = axios.create({
-	baseURL: import.meta.env.VITE_TEST_VAR
+	baseURL: import.meta.env.VITE_API_URL
 })
 
 // Creating interceptor for requests where authorization is required ($authHost)
