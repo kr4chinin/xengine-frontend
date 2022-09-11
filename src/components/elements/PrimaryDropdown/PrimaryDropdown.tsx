@@ -4,13 +4,21 @@ import { useClickOutside } from '../../../hooks/useClickOutside'
 import { Icon } from '@iconify/react'
 import cl from 'classnames'
 import { Icons } from '../../../utils/Icons'
+import { ProgressBar } from 'react-loader-spinner'
 
 interface PrimaryDropdownProps {
 	list: { id: number; name: string }[]
 	title: string
+	isLoading?: boolean
+	isError?: boolean
 }
 
-const PrimaryDropdown: FC<PrimaryDropdownProps> = ({ list, title }) => {
+const PrimaryDropdown: FC<PrimaryDropdownProps> = ({
+	list,
+	title,
+	isError = false,
+	isLoading = false
+}) => {
 	const [isShown, setIsShown] = useState(false)
 
 	const triggerRef = useRef<HTMLDivElement>(null)
@@ -45,11 +53,17 @@ const PrimaryDropdown: FC<PrimaryDropdownProps> = ({ list, title }) => {
 					ref={dropdownRef}
 					onClick={handleStopPropagation}
 				>
-					<ul>
-						{list.map(el => (
-							<li key={el.id}>{el.name}</li>
-						))}
-					</ul>
+					{!isError ? (
+						<p className={styles['error-message']}>❌ Error occured!</p>
+					) : (
+						<ul>
+							{isLoading ? (
+								<ProgressBar borderColor="whitesmoke" barColor="#5878A9" />
+							) : (
+								list?.map(el => <li key={el.id}>{el.name}</li>)
+							)}
+						</ul>
+					)}
 				</div>
 			</div>
 		</div>

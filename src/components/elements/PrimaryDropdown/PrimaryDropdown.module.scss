@@ -87,6 +87,11 @@
 					color: $font-main;
 				}
 			}
+
+            .error-message {
+                font-size: 24px;
+                color: $tertiary;
+            }
 		}
 
 		.menu.active {
