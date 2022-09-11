@@ -2,6 +2,7 @@ import { FC } from 'react'
 import { Vehicle } from '../../types/Vehicle'
 import VehicleItem from '../VehicleItem/VehicleItem'
 import styles from './VehicleList.module.scss'
+import { Radio } from 'react-loader-spinner'
 
 interface VehicleListProps {
 	vehicles: Vehicle[]
@@ -16,11 +17,19 @@ const VehiclesList: FC<VehicleListProps> = ({
 }) => {
 	return (
 		<div className={styles.container}>
-			{vehicles?.map(vehicle => (
-				<VehicleItem vehicle={vehicle} key={vehicle.id} />
-			))}
-			{isLoading && <div>Loading...</div>}
-			{isError && <div>Error</div>}
+			{!isError &&
+				!isLoading &&
+				vehicles?.map(vehicle => (
+					<VehicleItem vehicle={vehicle} key={vehicle.id} />
+				))}
+			<Radio
+				colors={['#5878A9', '#ADD1DF', '#5878A9']}
+				height={100}
+				width={200}
+				visible={!isLoading}
+				wrapperStyle={{ alignSelf: 'center' }}
+			/>
+			{!isError && <p>❌ Something went wrong...</p>}
 		</div>
 	)
 }
