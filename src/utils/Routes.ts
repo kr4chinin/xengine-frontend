@@ -2,5 +2,6 @@ export enum Routes {
     MAIN = '/',
     LOGIN = '/login',
     REGISTRATION = '/registration',
-    CART = '/cart'
+    CART = '/cart',
+    DEVICE = '/device'
 }

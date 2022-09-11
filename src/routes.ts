@@ -1,5 +1,6 @@
 import AuthPage from "./pages/AuthPage/AuthPage"
 import CartPage from "./pages/CartPage/CartPage"
+import DevicePage from "./pages/DevicePage/DevicePage"
 import MainPage from "./pages/MainPage/MainPage"
 import { Routes } from "./utils/Routes"
 
@@ -21,5 +22,9 @@ export const publicRoutes = [
     {
         path: Routes.CART,
         Component: CartPage
+    },
+    {
+        path: Routes.DEVICE + '/:id',
+        Component: DevicePage
     }
 ]
