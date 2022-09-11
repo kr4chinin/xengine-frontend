@@ -48,7 +48,7 @@ const CartPage = () => {
                 <Cart />
 				<h2>Your cart</h2>
 			</div>
-            <VehiclesList vehicles={vehicles}/>
+            <VehiclesList vehicles={vehicles} isError={false} isLoading={false}/>
 		</div>
 	)
 }

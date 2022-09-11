@@ -10,6 +10,7 @@ import { useQuery } from '@tanstack/react-query'
 import { fetchVehicles } from '../../api/vehicleAPI'
 import vehicle from '../../store/VehicleStore'
 import { observer } from 'mobx-react-lite'
+import PaginationBar from '../../components/sections/PaginationBar/PaginationBar'
 
 const MainPage = observer(() => {
 	const [isNavBarVisible, setIsNavBarVisible] = useState(false)
@@ -17,21 +18,19 @@ const MainPage = observer(() => {
 
 	const [vehicles, setVehicles] = useState<Vehicle[]>([])
 
-	const [page, setPage] = useState(1)
-
 	const { isLoading, isError } = useQuery(
-		['vehicles', vehicle.selectedType, vehicle.selectedBrand, page],
+		['vehicles', vehicle.selectedType, vehicle.selectedBrand, vehicle.page, vehicle.limit],
 		() =>
 			fetchVehicles(
 				vehicle.selectedType?.id ?? null,
 				vehicle.selectedBrand?.id ?? null, 
-				page,
-				2
+				vehicle.page,
+				vehicle.limit
 			),
 		{
 			onSuccess(data) {
-				console.log(data)
-				setVehicles(data)
+				setVehicles(data.rows)
+                vehicle.setTotalCount(data.count)
 			}
 		}
 	)
@@ -52,6 +51,7 @@ const MainPage = observer(() => {
 				isVisible={isSideBarVisible}
 				setIsVisible={setIsSideBarVisible}
 			/>
+            <PaginationBar />
 		</div>
 	)
 })

@@ -19,7 +19,7 @@ export const fetchVehicles = async (typeId: number | null, brandId: number | nul
         page,
         limit
     }})
-    return data.rows
+    return data
 }
 
 
