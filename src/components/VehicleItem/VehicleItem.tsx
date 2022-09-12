@@ -11,6 +11,8 @@ import { fetchBrand, fetchType } from '../../api/vehicleAPI'
 import { Type } from '../../types/Type'
 import { ThreeDots } from 'react-loader-spinner'
 import { Brand } from '../../types/Brand'
+import { useNavigate } from 'react-router-dom'
+import { Routes } from '../../utils/Routes'
 
 interface VehicleItemProps {
 	vehicle: Vehicle
@@ -31,8 +33,17 @@ const VehicleItem: FC<VehicleItemProps> = ({ vehicle }) => {
 		fetchBrand(vehicle.brandId)
 	)
 
+	const navigate = useNavigate()
+
+	function handleNavigateToVehicle(vehicleId: number) {
+		navigate(Routes.DEVICE + `/${vehicleId}`)
+	}
+
 	return (
-		<div className={styles['global-container']}>
+		<div
+			className={styles['global-container']}
+			onClick={() => handleNavigateToVehicle(vehicle.id)}
+		>
 			<div className={styles.container}>
 				<div className={styles['image-container']}>
 					<img
