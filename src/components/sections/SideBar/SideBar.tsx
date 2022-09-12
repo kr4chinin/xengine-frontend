@@ -3,6 +3,8 @@ import styles from './SideBar.module.scss'
 import { ReactComponent as Home } from '../../../assets/icons/home.svg'
 import { ReactComponent as Cart } from '../../../assets/icons/cart.svg'
 import { ReactComponent as GitHub } from '../../../assets/icons/github.svg'
+import { ReactComponent as Cog } from '../../../assets/icons/cog.svg'
+
 import cl from 'classnames'
 
 interface SideBarProps {
@@ -27,6 +29,8 @@ const SideBar: FC<SideBarProps> = ({ isVisible, setIsVisible }) => {
 		}
 	}, [setIsVisible])
 
+    // TODO: CHECK IS USER ROLE IS ADMIN -> SHOW ADMIN PANEL
+
 	return (
 		<nav className={styles.container}>
 			<ul className={cl(styles.body, { [styles.hidden]: !isVisible })}>
@@ -39,6 +43,9 @@ const SideBar: FC<SideBarProps> = ({ isVisible, setIsVisible }) => {
 				<li>
 					<GitHub />
 				</li>
+                <li className={styles.admin} style={{display: 'none'}}>
+                    <Cog />
+                </li>
 			</ul>
 		</nav>
 	)
