@@ -24,13 +24,14 @@
 				width: 282px;
 
 				object-fit: cover;
-				border-radius: 10px;
+				border-radius: inherit;
 
                 z-index: -1;
 			}
 		}
 
 		.info {
+            cursor: pointer;
 			display: flex;
 			flex-direction: column;
 
