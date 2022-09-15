@@ -8,5 +8,6 @@ export enum Icons {
 	DOLLAR_CIRCLE = 'ant-design:dollar-circle-filled',
 	COG = 'icomoon-free:cog',
     INFO = 'clarity:info-standard-line',
-    ERROR = 'codicon:bracket-error'
+    ERROR = 'codicon:bracket-error',
+    CROSS = 'charm:cross'
 }

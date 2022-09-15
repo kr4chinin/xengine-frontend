@@ -1,11 +1,12 @@
 import styles from './AddToCartButton.module.scss'
 import { Icon } from '@iconify/react'
-import React, { FC } from 'react'
+import React, { FC, useState } from 'react'
 import { Icons } from '../../../utils/Icons'
 import { observer } from 'mobx-react-lite'
 import user from '../../../store/UserStore'
 import { useMutation } from '@tanstack/react-query'
 import { addToCart } from '../../../api/cartAPI'
+import AddToCartWarning from '../../Popups/AddToCartWarning/AddToCartWarning'
 
 interface AddToCartButtonProps {
 	top?: string
@@ -23,8 +24,10 @@ const AddToCartButton: FC<AddToCartButtonProps> = observer(
 		height = '45px',
 		vehicleId
 	}) => {
-		if (user.user?.id) {
-			alert('Not authorized')
+		const [isWarningOpen, setIsWarningOpen] = useState(false)
+
+		function handleCloseWarning() {
+			setIsWarningOpen(false)
 		}
 
 		const { mutate: handleAddToCart } = useMutation(() =>
@@ -36,18 +39,28 @@ const AddToCartButton: FC<AddToCartButtonProps> = observer(
 			if (user.user?.id) {
 				handleAddToCart()
 			} else {
-				alert('Not authorized')
+				setIsWarningOpen(true)
 			}
 		}
 
 		return (
-			<button
-				onClick={handleClick}
-				className={styles['add-btn']}
-				style={{ top, left, width, height }}
-			>
-				<Icon icon={Icons.SHOPPING_CART_ADD} className={styles['cart-icon']} />
-			</button>
+			<>
+				<button
+					onClick={handleClick}
+					className={styles['add-btn']}
+					style={{ top, left, width, height }}
+				>
+					<Icon
+						icon={Icons.SHOPPING_CART_ADD}
+						className={styles['cart-icon']}
+					/>
+				</button>
+                
+				<AddToCartWarning
+					isOpened={isWarningOpen}
+					onClose={handleCloseWarning}
+				/>
+			</>
 		)
 	}
 )
