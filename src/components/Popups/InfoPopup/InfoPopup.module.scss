@@ -1,0 +1,69 @@
+@import '../../../styles/colorPalette';
+
+.container {
+	background: $font-light;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 20px;
+
+	padding: 1em 1.5em 1em 1.5em;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: start;
+	gap: 20px;
+
+    min-height: 260px;
+
+	header {
+		color: $font-title;
+		font-size: 26px;
+		font-weight: 700;
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		svg {
+			width: 40px;
+			height: 40px;
+
+			transition: 500ms;
+
+			&:hover {
+				cursor: pointer;
+				transform: scale(1.05);
+			}
+		}
+	}
+
+	.body {
+		font-size: 20px;
+	}
+
+	.controls-container {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+
+		.continue-btn {
+			background-color: lightgreen;
+			width: 230px;
+			height: 45px;
+
+			box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+			background: rgba(144, 238, 144, 0.55);
+			border: 1px solid #000000;
+			border-radius: 33px;
+
+            font-size: 16px;
+            transition: 500ms;
+
+            &:hover {
+                cursor: pointer;
+                background: rgba(144, 238, 144, 0.75);
+                transform: translateY(-3px);
+            }
+		}
+	}
+}
