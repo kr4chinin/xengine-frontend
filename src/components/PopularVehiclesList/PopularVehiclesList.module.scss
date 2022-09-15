@@ -9,15 +9,15 @@
 		color: $font-title;
 
 		font-weight: normal;
-		font-size: 32px;
+		font-size: 30px;
 		margin-top: 10px;
 	}
 
     .vehicles-container {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
-        gap: 41px;
-        margin-top: 50px;
+        justify-content: center;
+        gap: 32px;
+        margin-top: 40px;
     }
 }

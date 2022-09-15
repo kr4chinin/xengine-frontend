@@ -47,7 +47,7 @@ const VehicleItem: FC<VehicleItemProps> = ({ vehicle }) => {
 						src={import.meta.env.VITE_API_URL + vehicle.img}
 						alt={vehicle.name}
 					/>
-					<AddToCartButton vehicleId={vehicle.id} />
+					<AddToCartButton vehicleId={vehicle.id} width='40px' height='40px'/>
 				</div>
 				<div className={styles.info}>
 					<div className={styles.main}>
@@ -67,7 +67,7 @@ const VehicleItem: FC<VehicleItemProps> = ({ vehicle }) => {
 						>
 							{!isTypeLoading && !isTypeError && type?.name}
 							{isTypeLoading && (
-								<ThreeDots width={45} height={45} color="#5878A9" />
+								<ThreeDots width={36} height={36} color="#5878A9" />
 							)}
 							{isTypeError && <p>Error 🚫</p>}
 						</div>
@@ -81,7 +81,7 @@ const VehicleItem: FC<VehicleItemProps> = ({ vehicle }) => {
 						>
 							{!isBrandLoading && !isBrandError && brand?.name}
 							{isBrandLoading && (
-								<ThreeDots width={45} height={45} color="#5878A9" />
+								<ThreeDots width={36} height={36} color="#5878A9" />
 							)}
 							{isBrandError && <p>Error 🚫</p>}
 						</div>
@@ -106,7 +106,7 @@ const VehicleItem: FC<VehicleItemProps> = ({ vehicle }) => {
 					</section>
 				</div>
 			</div>
-			<HorizontalLine borderColor="#94a6b7" />
+			<HorizontalLine borderColor="#94a6b7" marginTop='32px'/>
 		</div>
 	)
 }

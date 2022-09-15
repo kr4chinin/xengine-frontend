@@ -45,9 +45,7 @@ const CartPage = observer(() => {
 				</div>
 			)}
 			{!isError && !isLoading && (
-				<div className={styles['cart-items']}>
-					<VehiclesList vehicles={vehicles} isError={false} isLoading={false} />
-				</div>
+				<VehiclesList vehicles={vehicles} isError={false} isLoading={false} />
 			)}
 		</div>
 	)

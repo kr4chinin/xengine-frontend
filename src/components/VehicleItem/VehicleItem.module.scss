@@ -1,10 +1,10 @@
 @import '../../styles/colorPalette';
 
 .global-container {
-	margin-top: 31px;
+	margin-top: 25px;
 
 	hr {
-		margin-top: 31px;
+		margin-top: 25px;
 	}
 
 	.container {
@@ -13,15 +13,15 @@
 		.image-container {
 			position: relative;
 
-			width: 282px;
-			height: 282px;
+			width: 226px;
+			height: 226px;
 
-			border-radius: 10px;
-			box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+			border-radius: 8px;
+			box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
 
 			img {
-				height: 282px;
-				width: 282px;
+				height: 226px;
+				width: 226px;
 
 				object-fit: cover;
 				border-radius: inherit;
@@ -35,7 +35,7 @@
 			flex-direction: column;
 
 			width: 100%;
-			height: 282px;
+			height: 226px;
 
 			.main {
 				width: 100%;
@@ -43,11 +43,11 @@
 				display: flex;
 				justify-content: space-between;
 
-				padding: 0 24px 0 24px;
+				padding: 0 20px 0 20px;
 
 				.name {
 					font-weight: 800;
-					font-size: 32px;
+					font-size: 26px;
 					color: $font-title;
 
 					&:hover {
@@ -57,7 +57,7 @@
 				}
 
 				.type {
-					font-size: 32px;
+					font-size: 26px;
 					color: $font-gray-title;
 
 					&:hover {
@@ -66,7 +66,7 @@
 				}
 
 				.brand {
-					font-size: 32px;
+					font-size: 26px;
 					color: $font-title;
 
 					&:hover {
@@ -76,51 +76,51 @@
 			}
 
 			.secondary {
-				margin-top: 10px;
+				margin-top: 8px;
 				display: flex;
 				font-weight: 700;
-				font-size: 20px;
+				font-size: 16px;
 
 				.rating-container {
-					min-width: 129px;
+					min-width: 104px;
 
 					display: flex;
 					align-items: center;
 					justify-content: flex-start;
-					gap: 5px;
+					gap: 4px;
 
-					padding-left: 24px;
+					padding-left: 20px;
 					color: $font-gray;
 				}
 
 				.price-container {
-					min-width: 153px;
+					min-width: 123px;
 
 					display: flex;
 					align-items: center;
 					justify-content: center;
-					gap: 5px;
+					gap: 4px;
 
-					padding-left: 24px;
+					padding-left: 20px;
 					color: $font-gray;
 				}
 			}
 
 			.description {
-				margin-top: 25px;
+				margin-top: 20px;
 				width: 100%;
-				padding-left: 24px;
+				padding-left: 20px;
 
 				header {
 					color: $font-title;
-					font-size: 32px;
+					font-size: 24px;
 					font-weight: 700;
 				}
 
 				.description-content {
-					height: 144px;
+					height: 115px;
 					overflow: scroll;
-					font-size: 28px;
+					font-size: 20px;
 				}
 			}
 		}

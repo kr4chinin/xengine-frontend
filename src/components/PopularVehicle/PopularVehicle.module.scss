@@ -3,18 +3,18 @@
 .container {
     position: relative;
 
-	width: 422px;
-	height: 519px;
+	width: 338px;
+	height: 415px;
 
-    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.35);
-	border-radius: 10px;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.35);
+	border-radius: 9px;
 
 	img {
 		height: 100%;
 		width: 100%;
 
 		object-fit: cover;
-        border-radius: 10px;
+        border-radius: 9px;
 	}
 
 	.learn-more-btn {
@@ -22,12 +22,12 @@
         top: 82%;
         left: 25%;
 
-		width: 230px;
-		height: 45px;
+		width: 184px;
+		height: 36px;
 
         border: 1px solid black;
-        border-radius: 33px;
-        font-size: 20px;
+        border-radius: 26px;
+        font-size: 17px;
 
         background-color: $secondary;
 
@@ -41,20 +41,20 @@
     .rating {
         display: flex;
         align-items: center;
-        gap: 5px;
+        gap: 4px;
         top: 92%;
         left: 37%;
 
         position: absolute;
         color: rgba(165, 231, 235, 0.8);
 
-        font-size: 20px;
+        font-size: 17px;
     }
 
     transition: 500ms;
 
     &:hover {
         cursor: pointer;
-        transform: translateY(-9px);
+        transform: translateY(-7px);
     }
 }
