@@ -32,7 +32,7 @@ const CartPage = observer(() => {
 			<HorizontalLine marginTop="200px" />
 			<div className={styles.header}>
 				<Cart />
-				<h2>Your cart</h2>
+				<h2>Your cart: </h2>
 			</div>
 			{isLoading && (
 				<div className={styles['loader-container']}>
@@ -45,7 +45,9 @@ const CartPage = observer(() => {
 				</div>
 			)}
 			{!isError && !isLoading && (
-				<VehiclesList vehicles={vehicles} isError={false} isLoading={false} />
+				<div className={styles['cart-items']}>
+					<VehiclesList vehicles={vehicles} isError={false} isLoading={false} />
+				</div>
 			)}
 		</div>
 	)
