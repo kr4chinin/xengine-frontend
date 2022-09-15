@@ -2,9 +2,9 @@ import styles from './NavBar.module.scss'
 import { ReactComponent as Logo } from '../../../assets/icons/engine.svg'
 import cl from 'classnames'
 import { useEffect, FC } from 'react'
-import PrimaryButton from '../../elements/PrimaryButton/PrimaryButton'
+import PrimaryButton from '../../Elements/PrimaryButton/PrimaryButton'
 import { useNavigate } from 'react-router-dom'
-import SecondaryButton from '../../elements/SecondaryButton/SecondaryButton'
+import SecondaryButton from '../../Elements/SecondaryButton/SecondaryButton'
 import { Routes } from '../../../utils/Routes'
 
 interface NavBarProps {

@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { Vehicle } from '../../types/Vehicle'
 import styles from './PopularVehicle.module.scss'
-import AddToCartButton from '../elements/AddToCartButton/AddToCartButton'
+import AddToCartButton from '../Elements/AddToCartButton/AddToCartButton'
 import { Icon } from '@iconify/react'
 import { Icons } from '../../utils/Icons'
 import { useNavigate } from 'react-router-dom'

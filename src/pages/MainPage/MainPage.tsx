@@ -1,16 +1,16 @@
 import CatalogControls from '../../components/CatalogControls/CatalogControls'
-import HorizontalLine from '../../components/elements/HorizontalLine/HorizontalLine'
-import NavBar from '../../components/sections/NavBar/NavBar'
+import HorizontalLine from '../../components/Elements/HorizontalLine/HorizontalLine'
+import NavBar from '../../components/Sections/NavBar/NavBar'
 import PopularVehiclesList from '../../components/PopularVehiclesList/PopularVehiclesList'
 import VehiclesList from '../../components/VehiclesList/VehiclesList'
 import { useState } from 'react'
-import SideBar from '../../components/sections/SideBar/SideBar'
+import SideBar from '../../components/Sections/SideBar/SideBar'
 import { Vehicle } from '../../types/Vehicle'
 import { useQuery } from '@tanstack/react-query'
 import { fetchVehicles } from '../../api/vehicleAPI'
 import vehicle from '../../store/VehicleStore'
 import { observer } from 'mobx-react-lite'
-import PaginationBar from '../../components/sections/PaginationBar/PaginationBar'
+import PaginationBar from '../../components/Sections/PaginationBar/PaginationBar'
 
 const MainPage = observer(() => {
 	const [isNavBarVisible, setIsNavBarVisible] = useState(false)

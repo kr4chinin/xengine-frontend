@@ -1,6 +1,6 @@
-import BrandsDropdown from '../elements/BrandsDropdown'
-import FilterDropdown from '../elements/FilterDropdown/FilterDropdown'
-import TypesDropdown from '../elements/TypesDropdown'
+import BrandsDropdown from '../Elements/BrandsDropdown'
+import FilterDropdown from '../Elements/FilterDropdown/FilterDropdown'
+import TypesDropdown from '../Elements/TypesDropdown'
 import styles from './CatalogControls.module.scss'
 
 const CatalogControls = () => {
