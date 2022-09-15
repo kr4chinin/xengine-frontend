@@ -6,6 +6,9 @@ import PrimaryButton from '../../components/elements/PrimaryButton/PrimaryButton
 import { useLocation } from 'react-router-dom'
 import { Routes } from '../../utils/Routes'
 import { useNavigate } from 'react-router-dom'
+import { useMutation } from '@tanstack/react-query'
+import { login, registration } from '../../api/userAPI'
+import user from '../../store/UserStore'
 
 const AuthPage = () => {
 	const [email, setEmail] = useState('')
@@ -30,7 +33,36 @@ const AuthPage = () => {
 		navigate(Routes.REGISTRATION)
 	}
 
-    const isRegistration = location.pathname === Routes.REGISTRATION
+	const isRegistration = location.pathname === Routes.REGISTRATION
+
+	const { mutate: handleLogin } = useMutation(() => login(email, password), {
+		onSuccess: data => {
+			user.setUser(data)
+			user.isAuth = true
+			navigate(Routes.MAIN)
+		}
+	})
+
+	const { mutate: handleRegistration } = useMutation(
+		() => registration(email, password),
+		{
+			onSuccess: data => {
+				user.setUser(data)
+				user.isAuth = true
+				navigate(Routes.MAIN)
+			}
+		}
+	)
+
+	const handleAuth = async () => {
+		try {
+			if (isRegistration) {
+				handleRegistration()
+			} else {
+				handleLogin()
+			}
+		} catch (e) {}
+	}
 
 	return (
 		<>
@@ -54,10 +86,13 @@ const AuthPage = () => {
 							placeholder="Enter password..."
 						/>
 					</div>
-					<PrimaryButton title={isRegistration ? 'Sign up' : 'Log in'} onClick={() => {}} />
+					<PrimaryButton
+						title={isRegistration ? 'Sign up' : 'Log in'}
+						onClick={handleAuth}
+					/>
 				</div>
 				<footer>
-					{isRegistration? (
+					{isRegistration ? (
 						<p>
 							Already have an account?{' '}
 							<span onClick={handleNavigateLogin}>Log in!</span>
