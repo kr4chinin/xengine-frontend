@@ -1,27 +1,38 @@
 @import '../../../styles/colorPalette';
 
 .primary-btn {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 
-    width: 231px;
-    height: 70px;
+	width: 231px;
+	height: 70px;
 
-    background: $primary;
-    border-radius: 13px;
-    border: none;
+	background: $primary;
+	border-radius: 13px;
+	border: none;
 
-    font-weight: 500;
-    color: $font-light;
+	font-weight: 500;
+	color: $font-light;
 
-    font-size: 22px;
+	font-size: 22px;
 
-    transition: 500ms ease-out;
-    
-    &:hover {
-        transform: translateY(-4px);
-        box-shadow: 3px 3px 2px 2px rgba(0, 0, 0, 0.25);
-    }
+	transition: 500ms ease-out;
+
+	&:hover {
+		transform: translateY(-4px);
+		box-shadow: 3px 3px 2px 2px rgba(0, 0, 0, 0.25);
+	}
+
+	p {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 8px;
+	}
+}
+
+.primary-btn:disabled {
+	cursor: not-allowed;
 }

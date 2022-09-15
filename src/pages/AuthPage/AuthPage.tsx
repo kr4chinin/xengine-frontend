@@ -111,6 +111,7 @@ const AuthPage = () => {
 					<PrimaryButton
 						title={isRegistration ? 'Sign up' : 'Log in'}
 						onClick={handleAuth}
+                        isLoading={isLoginLoading || isRegistrationLoading}
 					/>
 				</div>
 				<footer>
