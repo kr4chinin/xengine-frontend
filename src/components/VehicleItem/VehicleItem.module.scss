@@ -1,6 +1,10 @@
 @import '../../styles/colorPalette';
 
 .global-container {
+    &:hover {
+        cursor: pointer;
+    }
+    
 	margin-top: 31px;
 
 	hr {
@@ -31,7 +35,6 @@
 		}
 
 		.info {
-            cursor: pointer;
 			display: flex;
 			flex-direction: column;
 

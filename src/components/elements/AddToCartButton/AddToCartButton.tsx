@@ -1,6 +1,6 @@
 import styles from './AddToCartButton.module.scss'
 import { Icon } from '@iconify/react'
-import { FC } from 'react'
+import React, { FC } from 'react'
 import { Icons } from '../../../utils/Icons'
 import { observer } from 'mobx-react-lite'
 import user from '../../../store/UserStore'
@@ -23,16 +23,26 @@ const AddToCartButton: FC<AddToCartButtonProps> = observer(
 		height = '45px',
 		vehicleId
 	}) => {
+		if (user.user?.id) {
+			alert('Not authorized')
+		}
+
 		const { mutate: handleAddToCart } = useMutation(() =>
 			addToCart(user.user!.id, vehicleId)
 		)
 
+		function handleClick(e: React.MouseEvent<HTMLButtonElement>) {
+			e.stopPropagation()
+			if (user.user?.id) {
+				handleAddToCart()
+			} else {
+				alert('Not authorized')
+			}
+		}
+
 		return (
 			<button
-				onClick={() => {
-					handleAddToCart()
-					console.log(user.user?.id, vehicleId)
-				}}
+				onClick={handleClick}
 				className={styles['add-btn']}
 				style={{ top, left, width, height }}
 			>
