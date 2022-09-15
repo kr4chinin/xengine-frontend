@@ -24,7 +24,7 @@ const PopularVehicle: FC<PopularVehicleProps> = ({ vehicle }) => {
 				src={import.meta.env.VITE_API_URL + vehicle.img}
 				alt={vehicle.name}
 			/>
-			<AddToCartButton />
+			<AddToCartButton vehicleId={vehicle.id}/>
 			<button
 				className={styles['learn-more-btn']}
 				onClick={() => handleNavigateToVehicle(vehicle.id)}

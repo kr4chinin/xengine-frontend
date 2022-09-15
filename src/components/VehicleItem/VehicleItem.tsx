@@ -50,7 +50,7 @@ const VehicleItem: FC<VehicleItemProps> = ({ vehicle }) => {
 						src={import.meta.env.VITE_API_URL + vehicle.img}
 						alt={vehicle.name}
 					/>
-					<AddToCartButton />
+					<AddToCartButton vehicleId={vehicle.id}/>
 				</div>
 				<div className={styles.info}>
 					<div className={styles.main}>
