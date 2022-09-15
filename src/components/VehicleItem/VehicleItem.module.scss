@@ -1,10 +1,6 @@
 @import '../../styles/colorPalette';
 
 .global-container {
-    &:hover {
-        cursor: pointer;
-    }
-    
 	margin-top: 31px;
 
 	hr {
@@ -30,7 +26,7 @@
 				object-fit: cover;
 				border-radius: inherit;
 
-                z-index: -1;
+				z-index: -1;
 			}
 		}
 
@@ -53,16 +49,29 @@
 					font-weight: 800;
 					font-size: 32px;
 					color: $font-title;
+
+					&:hover {
+						cursor: pointer;
+						text-decoration: underline;
+					}
 				}
 
 				.type {
 					font-size: 32px;
 					color: $font-gray-title;
+
+					&:hover {
+                        cursor: pointer;
+					}
 				}
 
 				.brand {
 					font-size: 32px;
 					color: $font-title;
+
+					&:hover {
+                        cursor: pointer;
+					}
 				}
 			}
 

@@ -40,29 +40,45 @@ const VehicleItem: FC<VehicleItemProps> = ({ vehicle }) => {
 	}
 
 	return (
-		<div
-			className={styles['global-container']}
-			onClick={() => handleNavigateToVehicle(vehicle.id)}
-		>
+		<div className={styles['global-container']}>
 			<div className={styles.container}>
 				<div className={styles['image-container']}>
 					<img
 						src={import.meta.env.VITE_API_URL + vehicle.img}
 						alt={vehicle.name}
 					/>
-					<AddToCartButton vehicleId={vehicle.id}/>
+					<AddToCartButton vehicleId={vehicle.id} />
 				</div>
 				<div className={styles.info}>
 					<div className={styles.main}>
-						<div className={styles.name}>{vehicle.name}</div>
-						<div className={styles.type}>
+						<div
+							className={styles.name}
+							onClick={() => handleNavigateToVehicle(vehicle.id)}
+						>
+							{vehicle.name}
+						</div>
+						<div
+							className={styles.type}
+							onClick={
+								!isTypeLoading && !isTypeError && type?.name
+									? () => handleNavigateToVehicle(vehicle.id)
+									: () => {}
+							}
+						>
 							{!isTypeLoading && !isTypeError && type?.name}
 							{isTypeLoading && (
 								<ThreeDots width={45} height={45} color="#5878A9" />
 							)}
 							{isTypeError && <p>Error 🚫</p>}
 						</div>
-						<div className={styles.brand}>
+						<div
+							className={styles.brand}
+							onClick={
+								!isBrandLoading && !isBrandError && brand?.name
+									? () => handleNavigateToVehicle(vehicle.id)
+									: () => {}
+							}
+						>
 							{!isBrandLoading && !isBrandError && brand?.name}
 							{isBrandLoading && (
 								<ThreeDots width={45} height={45} color="#5878A9" />

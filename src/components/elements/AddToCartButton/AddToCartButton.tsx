@@ -7,6 +7,7 @@ import user from '../../../store/UserStore'
 import { useMutation } from '@tanstack/react-query'
 import { addToCart } from '../../../api/cartAPI'
 import AddToCartWarning from '../../Popups/AddToCartWarning/AddToCartWarning'
+import InterimPopup from '../../Popups/InterimPopup/InterimPopup'
 
 interface AddToCartButtonProps {
 	top?: string
@@ -25,13 +26,19 @@ const AddToCartButton: FC<AddToCartButtonProps> = observer(
 		vehicleId
 	}) => {
 		const [isWarningOpen, setIsWarningOpen] = useState(false)
+		const [isInterimSuccessOpen, setIsInterimSuccessOpen] = useState(false)
 
 		function handleCloseWarning() {
 			setIsWarningOpen(false)
 		}
 
-		const { mutate: handleAddToCart } = useMutation(() =>
-			addToCart(user.user!.id, vehicleId)
+		const { mutate: handleAddToCart } = useMutation(
+			() => addToCart(user.user!.id, vehicleId),
+			{
+				onSuccess: () => {
+					setIsInterimSuccessOpen(true)
+				}
+			}
 		)
 
 		function handleClick(e: React.MouseEvent<HTMLButtonElement>) {
@@ -41,6 +48,10 @@ const AddToCartButton: FC<AddToCartButtonProps> = observer(
 			} else {
 				setIsWarningOpen(true)
 			}
+		}
+
+		function handleInterimSuccessClose() {
+			setIsInterimSuccessOpen(false)
 		}
 
 		return (
@@ -55,11 +66,19 @@ const AddToCartButton: FC<AddToCartButtonProps> = observer(
 						className={styles['cart-icon']}
 					/>
 				</button>
-                
+
 				<AddToCartWarning
 					isOpened={isWarningOpen}
 					onClose={handleCloseWarning}
 				/>
+
+				<InterimPopup
+					isOpened={isInterimSuccessOpen}
+					onClose={handleInterimSuccessClose}
+
+				>
+					<p>Vehicle added to cart!</p>
+				</InterimPopup>
 			</>
 		)
 	}
