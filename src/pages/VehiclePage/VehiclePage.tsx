@@ -1,4 +1,4 @@
-import styles from './DevicePage.module.scss'
+import styles from './VehiclePage.module.scss'
 import { useParams } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
 import { fetchBrand, fetchType, fetchVehicle } from '../../api/vehicleAPI'
@@ -14,7 +14,7 @@ import { Icon } from '@iconify/react'
 import { Icons } from '../../utils/Icons'
 import { convertPrice } from '../../helpers/convertPrice'
 
-const DevicePage = () => {
+const VehiclePage = () => {
 	const { id } = useParams<{ id: string }>()
 
 	const {
@@ -89,7 +89,7 @@ const DevicePage = () => {
 									src={import.meta.env.VITE_API_URL + vehicle?.img}
 									alt={vehicle?.name}
 								/>
-								<AddToCartButton height="65px" width="65px" />
+								<AddToCartButton height="65px" width="65px" vehicleId={vehicle.id}/>
 							</div>
 							<div className={styles['first-column-additional']}>
 								<div className={styles.price}>
@@ -137,4 +137,4 @@ const DevicePage = () => {
 	)
 }
 
-export default DevicePage
+export default VehiclePage

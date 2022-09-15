@@ -9,20 +9,20 @@ import { useQuery } from '@tanstack/react-query'
 import { observer } from 'mobx-react-lite'
 import { Vehicle } from '../../types/Vehicle'
 import { getCartVehicles } from '../../api/cartAPI'
+import { Radio } from 'react-loader-spinner'
 
 const CartPage = observer(() => {
 	const [isNavBarVisible, setIsNavBarVisible] = useState(false)
 
-    const [vehicles, setVehicles] = useState<Vehicle[]>([])
+	const [vehicles, setVehicles] = useState<Vehicle[]>([])
 
-	const { data } = useQuery<Vehicle[]>(
+	const { isLoading, isError } = useQuery<Vehicle[]>(
 		['cart', user.user?.id],
 		() => getCartVehicles(user.user?.id || -1),
 		{
 			onSuccess: data => {
-                setVehicles(data)
-                console.log(data)
-            }
+				setVehicles(data)
+			}
 		}
 	)
 
@@ -34,11 +34,19 @@ const CartPage = observer(() => {
 				<Cart />
 				<h2>Your cart</h2>
 			</div>
-			<VehiclesList
-				vehicles={vehicles}
-				isError={false}
-				isLoading={false}
-			/>
+			{isLoading && (
+				<div className={styles['loader-container']}>
+					<Radio
+						colors={['#5878A9', '#ADD1DF', '#5878A9']}
+						height={100}
+						width={200}
+						wrapperStyle={{ alignSelf: 'center' }}
+					/>
+				</div>
+			)}
+			{!isError && !isLoading && (
+				<VehiclesList vehicles={vehicles} isError={false} isLoading={false} />
+			)}
 		</div>
 	)
 })

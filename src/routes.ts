@@ -1,9 +1,9 @@
 import AdminPage from "./pages/AdminPage/AdminPage"
 import AuthPage from "./pages/AuthPage/AuthPage"
 import CartPage from "./pages/CartPage/CartPage"
-import DevicePage from "./pages/DevicePage/DevicePage"
 import MainPage from "./pages/MainPage/MainPage"
 import { Routes } from "./utils/Routes"
+import VehiclePage from "./pages/VehiclePage/VehiclePage"
 
 export const authRoutes = [
     {
@@ -31,6 +31,6 @@ export const publicRoutes = [
     },
     {
         path: Routes.DEVICE + '/:id',
-        Component: DevicePage
+        Component: VehiclePage
     }
 ]
