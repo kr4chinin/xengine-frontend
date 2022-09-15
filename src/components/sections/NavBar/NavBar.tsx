@@ -51,7 +51,7 @@ const NavBar: FC<NavBarProps> = ({ isVisible, setIsVisible }) => {
 	}
 
 	function handleLogout() {
-		user.isAuth = false
+		user.setIsAuth(false)
 		localStorage.removeItem('token')
 		navigate(Routes.LOGIN)
 	}

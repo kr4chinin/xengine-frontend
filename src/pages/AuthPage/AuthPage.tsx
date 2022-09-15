@@ -47,7 +47,7 @@ const AuthPage = () => {
 	} = useMutation<User, ErrorResponse>(() => login(email, password), {
 		onSuccess: data => {
 			user.setUser(data)
-			user.isAuth = true
+			user.setIsAuth(true)
 			navigate(Routes.MAIN)
 		},
 		onError: error => {
@@ -63,7 +63,7 @@ const AuthPage = () => {
 	} = useMutation<User, ErrorResponse>(() => registration(email, password), {
 		onSuccess: data => {
 			user.setUser(data)
-			user.isAuth = true
+			user.setIsAuth(true)
 			navigate(Routes.MAIN)
 		},
 		onError: error => {
