@@ -9,10 +9,15 @@ import { useNavigate } from 'react-router-dom'
 import { useMutation } from '@tanstack/react-query'
 import { login, registration } from '../../api/userAPI'
 import user from '../../store/UserStore'
+import { User } from '../../types/User'
+import { ErrorResponse } from '../../types/ErrorResponse'
+import { Icon } from '@iconify/react'
+import { Icons } from '../../utils/Icons'
 
 const AuthPage = () => {
 	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
+	const [errorMessage, setErrorMessage] = useState<ErrorResponse | null>(null)
 
 	const navigate = useNavigate()
 	const location = useLocation()
@@ -35,33 +40,44 @@ const AuthPage = () => {
 
 	const isRegistration = location.pathname === Routes.REGISTRATION
 
-	const { mutate: handleLogin } = useMutation(() => login(email, password), {
+	const {
+		mutate: handleLogin,
+		isError: isLoginError,
+		isLoading: isLoginLoading
+	} = useMutation<User, ErrorResponse>(() => login(email, password), {
 		onSuccess: data => {
 			user.setUser(data)
 			user.isAuth = true
 			navigate(Routes.MAIN)
+		},
+		onError: error => {
+			setErrorMessage(error)
+			console.log('⚙️ This is dev message', error.response.data.cause)
 		}
 	})
 
-	const { mutate: handleRegistration } = useMutation(
-		() => registration(email, password),
-		{
-			onSuccess: data => {
-				user.setUser(data)
-				user.isAuth = true
-				navigate(Routes.MAIN)
-			}
+	const {
+		mutate: handleRegistration,
+		isError: isRegistrationError,
+		isLoading: isRegistrationLoading
+	} = useMutation<User, ErrorResponse>(() => registration(email, password), {
+		onSuccess: data => {
+			user.setUser(data)
+			user.isAuth = true
+			navigate(Routes.MAIN)
+		},
+		onError: error => {
+			setErrorMessage(error)
+			console.log('⚙️ This is dev message', error.response.data.cause)
 		}
-	)
+	})
 
 	const handleAuth = async () => {
-		try {
-			if (isRegistration) {
-				handleRegistration()
-			} else {
-				handleLogin()
-			}
-		} catch (e) {}
+		if (isRegistration) {
+			handleRegistration()
+		} else {
+			handleLogin()
+		}
 	}
 
 	return (
@@ -70,6 +86,12 @@ const AuthPage = () => {
 			<section className={styles.container}>
 				<h2>Authorization</h2>
 				<div className={styles['auth-container']}>
+					{(isRegistrationError || isLoginError) && (
+                        <div className={styles.error}>
+                            <Icon icon={Icons.ERROR} />
+                            <h3>{errorMessage?.response.data.message}</h3>
+                        </div>
+					)}
 					<div className={styles['input-container']}>
 						<PrimaryInput
 							type="text"
