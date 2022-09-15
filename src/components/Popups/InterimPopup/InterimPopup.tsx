@@ -11,12 +11,14 @@ interface InterimPopupProps {
 	isOpened: boolean
 	width?: string
 	children: React.ReactNode
+    background?: string
 }
 
 const InterimPopup: FC<InterimPopupProps> = ({
 	onClose,
 	isOpened,
 	width = '300px',
+    background = '#5878A9',
 	children
 }) => {
 	const mainRef = useRef(null)
@@ -35,7 +37,7 @@ const InterimPopup: FC<InterimPopupProps> = ({
 			<div
 				onClick={onClose}
 				className={cl(styles.container, { [styles.active]: isOpened })}
-				style={{ width }}
+				style={{ width, background }}
 				role="dialog"
 			>
 				<Icon icon={Icons.INFO} />

@@ -1,7 +1,7 @@
 @import '../../../styles/colorPalette';
 
 .container {
-	z-index: 2;
+    z-index: -2;
 	position: fixed;
 	min-height: 50px;
 	border-radius: 20px;
@@ -24,6 +24,7 @@
 	font-size: 20px;
 	background-color: $primary;
 	color: $font-light;
+
 	svg {
 		width: 40px;
 		height: 40px;
@@ -34,4 +35,5 @@
 	opacity: 1;
 	transform: translateX(0);
     cursor: pointer;
+    z-index: 2;
 }

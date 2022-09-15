@@ -4,8 +4,8 @@ import React, { FC, useState } from 'react'
 import { Icons } from '../../../utils/Icons'
 import { observer } from 'mobx-react-lite'
 import user from '../../../store/UserStore'
-import { useMutation } from '@tanstack/react-query'
-import { addToCart } from '../../../api/cartAPI'
+import { useMutation, useQuery } from '@tanstack/react-query'
+import { addToCart, checkIsInCart, deleteFromCart } from '../../../api/cartAPI'
 import AddToCartWarning from '../../Popups/AddToCartWarning/AddToCartWarning'
 import InterimPopup from '../../Popups/InterimPopup/InterimPopup'
 
@@ -26,22 +26,44 @@ const AddToCartButton: FC<AddToCartButtonProps> = observer(
 		vehicleId
 	}) => {
 		const [isWarningOpen, setIsWarningOpen] = useState(false)
-		const [isInterimSuccessOpen, setIsInterimSuccessOpen] = useState(false)
 
-		function handleCloseWarning() {
-			setIsWarningOpen(false)
-		}
+		const [isInterimAddOpen, setIsInterimAddOpen] = useState(false)
+		const [isInterimDeleteOpen, setIsInterimDeleteOpen] = useState(false)
+
+		const [isInCart, setIsInCart] = useState(false)
+
+		const { refetch } = useQuery<boolean>(
+			['check-cart', user.user?.id, vehicleId],
+			() => checkIsInCart(user.user?.id || -1, vehicleId),
+			{
+				onSuccess: data => {
+					setIsInCart(data)
+				},
+				enabled: user.user?.id !== undefined
+			}
+		)
 
 		const { mutate: handleAddToCart } = useMutation(
 			() => addToCart(user.user!.id, vehicleId),
 			{
 				onSuccess: () => {
-					setIsInterimSuccessOpen(true)
+					setIsInterimAddOpen(true)
+					refetch()
 				}
 			}
 		)
 
-		function handleClick(e: React.MouseEvent<HTMLButtonElement>) {
+		const { mutate: handleDeleteFromCart } = useMutation(
+			() => deleteFromCart(user.user!.id, vehicleId),
+			{
+				onSuccess: () => {
+					setIsInterimDeleteOpen(true)
+					refetch()
+				}
+			}
+		)
+
+		function handleAdd(e: React.MouseEvent<HTMLButtonElement>) {
 			e.stopPropagation()
 			if (user.user?.id) {
 				handleAddToCart()
@@ -50,19 +72,38 @@ const AddToCartButton: FC<AddToCartButtonProps> = observer(
 			}
 		}
 
-		function handleInterimSuccessClose() {
-			setIsInterimSuccessOpen(false)
+		function handleDelete(e: React.MouseEvent<HTMLButtonElement>) {
+			e.stopPropagation()
+			if (user.user?.id) {
+				handleDeleteFromCart()
+			} else {
+				setIsWarningOpen(true)
+			}
+		}
+
+		function handleInterimAddClose() {
+			setIsInterimAddOpen(false)
+		}
+
+		function handleInterimDeleteClose() {
+			setIsInterimDeleteOpen(false)
+		}
+
+        function handleCloseWarning() {
+			setIsWarningOpen(false)
 		}
 
 		return (
 			<>
 				<button
-					onClick={handleClick}
+					onClick={isInCart ? handleDelete : handleAdd}
 					className={styles['add-btn']}
 					style={{ top, left, width, height }}
 				>
 					<Icon
-						icon={Icons.SHOPPING_CART_ADD}
+						icon={
+							isInCart ? Icons.SHOPPING_CART_DELETE : Icons.SHOPPING_CART_ADD
+						}
 						className={styles['cart-icon']}
 					/>
 				</button>
@@ -73,11 +114,19 @@ const AddToCartButton: FC<AddToCartButtonProps> = observer(
 				/>
 
 				<InterimPopup
-					isOpened={isInterimSuccessOpen}
-					onClose={handleInterimSuccessClose}
-
+					isOpened={isInterimAddOpen}
+					onClose={handleInterimAddClose}
 				>
 					<p>Vehicle added to cart!</p>
+				</InterimPopup>
+
+				<InterimPopup
+					isOpened={isInterimDeleteOpen}
+					onClose={handleInterimDeleteClose}
+					background="#CA3142"
+					width="350px"
+				>
+					<p>Vehicle removed from cart!</p>
 				</InterimPopup>
 			</>
 		)

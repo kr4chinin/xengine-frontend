@@ -11,7 +11,7 @@ class UserStore {
         makeAutoObservable(this)
     }
 
-    set isAuth(value: boolean) {
+    setIsAuth(value: boolean) {
         this._isAuth = value
     }
 
