@@ -1,12 +1,12 @@
 @import '../../styles/colorPalette';
 
 .loader-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
 
-    margin-top: 250px;
+	margin-top: 250px;
 }
 
 .container {
@@ -81,10 +81,10 @@
 						font-weight: 800;
 						color: $font-gray-title;
 					}
-                    
-                    svg {
-                        margin: 0 0 2px 2px;
-                    }
+
+					svg {
+						margin: 0 0 2px 2px;
+					}
 				}
 
 				.rating {
@@ -99,9 +99,9 @@
 						color: $font-gray-title;
 					}
 
-                    svg {
-                        margin: 0 0 2px 2px;
-                    }
+					svg {
+						margin: 0 0 2px 2px;
+					}
 				}
 			}
 		}
@@ -109,31 +109,83 @@
 		.second-column {
 			width: 100%;
 			padding-left: 15px;
-            
-            display: flex;
-            flex-direction: column;
+
+			display: flex;
+			flex-direction: column;
 
 			.description {
-                margin-top: 15px;
+				margin-top: 15px;
 
 				h3 {
 					font-weight: 600;
 					font-size: 28px;
-                    color: $font-title;
+					color: $font-title;
 				}
 
-                p {
-                    font-size: 26px;
-                }
+				p {
+					font-size: 26px;
+				}
 			}
-            
-            .characteristics {
-                h3 {
+
+			.characteristics {
+				h3 {
+                    margin-top: 20px;
+                    
 					font-weight: 600;
 					font-size: 28px;
-                    color: $font-title;
+					color: $font-title;
 				}
-            }
+			}
+
+			.info-container {
+				display: flex;
+				gap: 20px;
+				margin-top: 20px;
+
+				.info-title {
+					font-weight: 600;
+					font-size: 26px;
+					color: black;
+
+					width: 444px;
+					height: 89px;
+					background-color: $primary-light;
+					box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+					border-radius: 15px;
+
+					padding: 0.5em;
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-start;
+                    gap: 10px;
+
+                    svg {
+                        color: $icons-gray;
+                    }
+				}
+
+				.info-description {
+					font-weight: 600;
+					font-size: 26px;
+					color: black;
+
+					width: 315px;
+					height: 89px;
+					box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+					background-color: $font-light;
+
+					padding: 0.5em;
+					border: 1px solid #000000;
+					border-radius: 15px;
+
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-start;
+                    gap: 10px;
+				}
+			}
+
+
 		}
 	}
 }

@@ -1,3 +1,5 @@
+import { Info } from "./Info"
+
 export type Vehicle = {
     id: number
     name: string
@@ -6,5 +8,6 @@ export type Vehicle = {
     img: string
     description: string
     typeId: number,
-    brandId: number
+    brandId: number,
+    info: Info[]
 }

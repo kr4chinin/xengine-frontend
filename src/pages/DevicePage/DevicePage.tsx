@@ -117,6 +117,18 @@ const DevicePage = () => {
 							<div className={styles.characteristics}>
 								<h3>Characteristics: </h3>
 							</div>
+							{vehicle?.info.map(info => (
+								<div className={styles['info-container']} key={info.id}>
+									<div className={styles['info-title']}>
+										<Icon icon={Icons.COG} />
+										<p>{info.title}</p>
+									</div>
+									<div className={styles['info-description']}>
+										<Icon icon={Icons.INFO} />
+										<p>{info.description}</p>
+									</div>
+								</div>
+							))}
 						</div>
 					</div>
 				</div>
