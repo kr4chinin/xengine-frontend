@@ -1,11 +1,13 @@
-import { Children, FC } from 'react'
+import {Icon as DefautltIcon} from '@iconify/react'
+import { FC } from 'react'
+import { Icons } from '../../../utils/Icons'
 import OverlayingPopup from '../OverlayingPopup/OverlayingPopup'
 import styles from './InfoPopup.module.scss'
 
 interface InfoPopupProps {
 	onClose: () => void
 	isOpened: boolean
-	Icon: React.ReactNode
+	Icon?: React.ReactNode
 	title: string
 	children: React.ReactNode
 	width: string
@@ -25,7 +27,7 @@ const InfoPopup: FC<InfoPopupProps> = ({
 		<OverlayingPopup isOpened={isOpened} onClose={onClose}>
 			<section className={styles.container} style={{ width, height }}>
 				<header>
-					{Icon}
+					{Icon ? Icon : <DefautltIcon icon={Icons.INFO} onClick={onClose} />}
 					<h3>{title}</h3>
 				</header>
 				<div className={styles.body}>{children}</div>
