@@ -6,6 +6,7 @@ import PrimaryButton from '../../Elements/PrimaryButton/PrimaryButton'
 import { useNavigate } from 'react-router-dom'
 import SecondaryButton from '../../Elements/SecondaryButton/SecondaryButton'
 import { Routes } from '../../../utils/Routes'
+import user from '../../../store/UserStore'
 
 interface NavBarProps {
 	isVisible: boolean
@@ -21,8 +22,6 @@ const NavBar: FC<NavBarProps> = ({ isVisible, setIsVisible }) => {
 				} else {
 					setIsVisible(false)
 				}
-			} else {
-				return
 			}
 		}
 
@@ -41,10 +40,28 @@ const NavBar: FC<NavBarProps> = ({ isVisible, setIsVisible }) => {
 
 	function handleNavigateMain() {
 		navigate(Routes.MAIN)
+		window.scrollTo({
+			top: 0,
+			behavior: 'smooth'
+		})
 	}
 
 	function handleNavigateCart() {
 		navigate(Routes.CART)
+	}
+
+	function handleLogout() {
+		user.isAuth = false
+		localStorage.removeItem('token')
+		navigate(Routes.LOGIN)
+	}
+
+	function handleScrollToControls() {
+		navigate(Routes.MAIN)
+		window.scrollTo({
+			top: 750,
+			behavior: 'smooth'
+		})
 	}
 
 	return (
@@ -55,14 +72,20 @@ const NavBar: FC<NavBarProps> = ({ isVisible, setIsVisible }) => {
 			</div>
 			<ul className={styles.links}>
 				<li onClick={handleNavigateMain}>Home</li>
-				<li>Types</li>
-				<li>Brands</li>
+				<li onClick={handleScrollToControls}>Types</li>
+				<li onClick={handleScrollToControls}>Brands</li>
 				<li onClick={handleNavigateCart}>Your cart</li>
 			</ul>
 			{isVisible ? (
-				<SecondaryButton title="Sign up" onClick={handleNavigateSignUp} />
+				<SecondaryButton
+					title={user.isAuth ? 'Log out' : 'Sign up'}
+					onClick={user.isAuth ? handleLogout : handleNavigateSignUp}
+				/>
 			) : (
-				<PrimaryButton title="Sign up" onClick={handleNavigateSignUp} />
+				<PrimaryButton
+					title={user.isAuth ? 'Log out' : 'Sign up'}
+					onClick={user.isAuth ? handleLogout : handleNavigateSignUp}
+				/>
 			)}
 		</nav>
 	)
