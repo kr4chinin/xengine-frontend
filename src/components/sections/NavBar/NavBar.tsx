@@ -51,7 +51,7 @@ const NavBar: FC<NavBarProps> = ({ isVisible, setIsVisible }) => {
 	}
 
 	function handleLogout() {
-        user.setUser(null)
+		user.setUser(null)
 		user.setIsAuth(false)
 		localStorage.removeItem('token')
 		navigate(Routes.LOGIN)
@@ -59,10 +59,16 @@ const NavBar: FC<NavBarProps> = ({ isVisible, setIsVisible }) => {
 
 	function handleScrollToControls() {
 		navigate(Routes.MAIN)
-		window.scrollTo({
-			top: 750,
-			behavior: 'smooth'
-		})
+
+		// Scroll to controls, setTimeout needed for scroll to work if we are pressing button from another page, 
+        // for example, from cart page, with 0ms delay it is putting macrotask at the end of the queue, so it will 
+        // be executed when all other tasks are done
+		setTimeout(() => {
+			document.getElementById('controls')?.scrollIntoView({
+				behavior: 'smooth',
+				block: 'center'
+			})
+		}, 0)
 	}
 
 	return (
