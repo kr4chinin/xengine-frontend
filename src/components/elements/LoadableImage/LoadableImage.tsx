@@ -7,13 +7,13 @@ interface LoadableImageProps {
 	src: string
 	alt?: string
 	onLoad?(): void
-    borderRadius?: string
+	borderRadius?: string
 }
 
 const LoadableImage: FC<LoadableImageProps> = ({
 	src,
 	alt = '',
-    borderRadius = '0px',
+	borderRadius = '0px',
 	onLoad = () => {}
 }) => {
 	const [isLoaded, setIsLoaded] = useState(false)
@@ -42,7 +42,7 @@ const LoadableImage: FC<LoadableImageProps> = ({
 			className={cn(styles.container, {
 				[styles.containerLoaded]: isLoaded
 			})}
-            style={{borderRadius: '10px'}}
+			style={{ borderRadius }}
 		>
 			{(isVisible || isLoaded) && (
 				<img
