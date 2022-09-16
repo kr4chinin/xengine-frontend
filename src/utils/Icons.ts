@@ -10,5 +10,6 @@ export enum Icons {
 	COG = 'icomoon-free:cog',
     INFO = 'clarity:info-standard-line',
     ERROR = 'codicon:bracket-error',
-    CROSS = 'charm:cross'
+    CROSS = 'charm:cross',
+    ADMIN_PANEL = 'wpf:administrator'
 }

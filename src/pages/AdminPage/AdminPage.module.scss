@@ -1,0 +1,44 @@
+@import '../../styles/colorPalette';
+
+.header {
+
+    display: flex;
+    align-items: center;
+
+	h2 {
+		color: $font-title;
+
+		font-weight: normal;
+		font-size: 26px;
+		margin-top: 10px;
+	}
+
+    svg {
+        margin-top: 5px;
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
+
+        color: $icons-gray;
+        fill: $icons-gray;
+    }
+}
+
+.body {
+	margin-top: 30px;
+
+	h2 {
+		font-weight: normal;
+		font-size: 26px;
+		margin-top: 10px;
+	}
+
+	.controls-container {
+		margin-top: 10px;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+
+		gap: 12px;
+	}
+}
