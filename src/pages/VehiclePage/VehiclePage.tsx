@@ -70,14 +70,14 @@ const VehiclePage = () => {
 						<div className={styles.type}>
 							{!isTypeLoading && !isTypeError && type?.name}
 							{isTypeLoading && (
-								<ThreeDots width={45} height={45} color="#5878A9" />
+								<ThreeDots width={36} height={36} color="#5878A9" />
 							)}
 							{isTypeError && <p>Error 🚫</p>}
 						</div>
 						<div className={styles.brand}>
 							{!isBrandLoading && !isBrandError && brand?.name}
 							{isBrandLoading && (
-								<ThreeDots width={45} height={45} color="#5878A9" />
+								<ThreeDots width={36} height={36} color="#5878A9" />
 							)}
 							{isBrandError && <p>Error 🚫</p>}
 						</div>
@@ -89,7 +89,7 @@ const VehiclePage = () => {
 									src={import.meta.env.VITE_API_URL + vehicle?.img}
 									alt={vehicle?.name}
 								/>
-								<AddToCartButton height="65px" width="65px" vehicleId={vehicle.id}/>
+								<AddToCartButton height="52px" width="52px" vehicleId={vehicle.id}/>
 							</div>
 							<div className={styles['first-column-additional']}>
 								<div className={styles.price}>
