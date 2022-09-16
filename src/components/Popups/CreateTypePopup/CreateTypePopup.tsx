@@ -25,6 +25,7 @@ const CreateTypePopup: FC<CreateTypePopupProps> = ({ isOpened, onClose }) => {
 	}
 
 	function handleCancel() {
+        setName('')
 		onClose()
 	}
 
