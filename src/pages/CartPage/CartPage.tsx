@@ -8,8 +8,11 @@ import user from '../../store/UserStore'
 import { useQuery } from '@tanstack/react-query'
 import { observer } from 'mobx-react-lite'
 import { Vehicle } from '../../types/Vehicle'
-import { getCartVehicles } from '../../api/cartAPI'
-import { Radio } from 'react-loader-spinner'
+import { getCartVehicles, getTotalPrice } from '../../api/cartAPI'
+import { Radio, ThreeDots } from 'react-loader-spinner'
+import { convertPrice } from '../../helpers/convertPrice'
+import { Icon } from '@iconify/react'
+import { Icons } from '../../utils/Icons'
 
 const CartPage = observer(() => {
 	const [isNavBarVisible, setIsNavBarVisible] = useState(false)
@@ -24,6 +27,10 @@ const CartPage = observer(() => {
 				setVehicles(data)
 			}
 		}
+	)
+
+	const { data: totalPrice } = useQuery<number>(['total-price'], () =>
+		getTotalPrice(user.user?.id || -1)
 	)
 
 	return (
@@ -47,6 +54,21 @@ const CartPage = observer(() => {
 			{!isError && !isLoading && (
 				<VehiclesList vehicles={vehicles} isError={false} isLoading={false} />
 			)}
+			<div className={styles.total}>
+                <Icon icon={Icons.DOLLAR_BANKNOTE}/>
+				<h2>Your total:</h2>
+				{totalPrice && (
+					<h2>
+						<span>{convertPrice(totalPrice.toString())}</span>
+					</h2>
+				)}
+				<ThreeDots
+					visible={!!!totalPrice}
+					color="#5878a9"
+					height={20}
+					width={45}
+				/>
+			</div>
 		</div>
 	)
 })
