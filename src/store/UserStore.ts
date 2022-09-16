@@ -15,7 +15,7 @@ class UserStore {
         this._isAuth = value
     }
 
-    setUser(user: User) {
+    setUser(user: User | null) {
         this._user = user
     }
 
