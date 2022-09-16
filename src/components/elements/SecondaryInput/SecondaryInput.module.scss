@@ -1,32 +1,32 @@
 @import '../../../styles/colorPalette';
 
 .container {
-    width: fit-content;
-    height: fit-content;
+	width: fit-content;
+	height: fit-content;
 
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
 
-    gap: 5px;
+	gap: 5px;
 
-    label {
-        font-weight: 600;
-        font-size: 20px;
-        color: $font-title;
-    }   
+	label {
+		font-weight: 600;
+		font-size: 20px;
+		color: $font-title;
+	}
 
-    input {
-        height: 45px;
-        padding: 0.5em;
+	input {
+		height: 45px;
+		padding: 0.5em;
 
-        font-size: 20px;
-        border: 2px solid $font-gray-title;
+		font-size: 20px;
+		border: 2px solid $font-gray-title;
 		border-radius: 10px;
-        background-color: $secondary;
-    }
+		background-color: $secondary;
+	}
 
-    ::placeholder {
+	::placeholder {
 		color: $font-gray;
 	}
 }

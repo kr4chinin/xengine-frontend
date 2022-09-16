@@ -1,12 +1,12 @@
 @import '../../styles/colorPalette';
 
 .container {
-    position: relative;
+	position: relative;
 
 	width: 338px;
 	height: 415px;
 
-    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.35);
+	box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.35);
 	border-radius: 9px;
 
 	img {
@@ -14,47 +14,47 @@
 		width: 100%;
 
 		object-fit: cover;
-        border-radius: 9px;
+		border-radius: 9px;
 	}
 
 	.learn-more-btn {
-        position: absolute;
-        top: 82%;
-        left: 25%;
+		position: absolute;
+		top: 82%;
+		left: 25%;
 
 		width: 184px;
 		height: 36px;
 
-        border: 1px solid black;
-        border-radius: 26px;
-        font-size: 17px;
+		border: 1px solid black;
+		border-radius: 26px;
+		font-size: 17px;
 
-        background-color: $secondary;
+		background-color: $secondary;
 
-        transition: 500ms;
-        &:hover {
-            cursor: pointer;
-            scale: 1.1;
-        }
+		transition: 500ms;
+		&:hover {
+			cursor: pointer;
+			scale: 1.1;
+		}
 	}
 
-    .rating {
-        display: flex;
-        align-items: center;
-        gap: 4px;
-        top: 92%;
-        left: 37%;
+	.rating {
+		display: flex;
+		align-items: center;
+		gap: 4px;
+		top: 92%;
+		left: 37%;
 
-        position: absolute;
-        color: rgba(165, 231, 235, 0.8);
+		position: absolute;
+		color: rgba(165, 231, 235, 0.8);
 
-        font-size: 17px;
-    }
+		font-size: 17px;
+	}
 
-    transition: 500ms;
+	transition: 500ms;
 
-    &:hover {
-        cursor: pointer;
-        transform: translateY(-7px);
-    }
+	&:hover {
+		cursor: pointer;
+		transform: translateY(-7px);
+	}
 }

@@ -20,8 +20,8 @@
 	}
 
 	.controls {
-        display: flex;
-        gap: 15px;
+		display: flex;
+		gap: 15px;
 
 		.accept,
 		.cancel {
@@ -30,19 +30,19 @@
 
 			background: rgba(144, 238, 144, 0.717);
 			border: 2px solid rgb(60, 98, 98);
-            box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.25);
+			box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.25);
 			border-radius: 33px;
 
 			font-weight: 400;
 			font-size: 16px;
 
-            transition: 500ms;
+			transition: 500ms;
 
-            &:hover {
-                transform: translateY(-3px);
-                box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.25);
-                cursor: pointer;
-            }
+			&:hover {
+				transform: translateY(-3px);
+				box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.25);
+				cursor: pointer;
+			}
 		}
 
 		.cancel {

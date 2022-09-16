@@ -12,7 +12,7 @@ class VehicleStore {
 	private _page: number
 	private _totalCount: number
 	private _limit: number
-    private _sort: string
+	private _sort: string
 
 	constructor() {
 		this._types = []
@@ -23,7 +23,7 @@ class VehicleStore {
 		this._page = 1
 		this._totalCount = 0
 		this._limit = 2
-        this._sort = ''
+		this._sort = ''
 		makeAutoObservable(this)
 	}
 
@@ -61,9 +61,9 @@ class VehicleStore {
 		this._limit = limit
 	}
 
-    setSort(sort: string) {
-        this._sort = sort
-    }
+	setSort(sort: string) {
+		this._sort = sort
+	}
 
 	get page() {
 		return this._page
@@ -97,9 +97,9 @@ class VehicleStore {
 		return this._selectedBrand
 	}
 
-    get sort() {
-        return this._sort
-    }
+	get sort() {
+		return this._sort
+	}
 }
 
 export default new VehicleStore()

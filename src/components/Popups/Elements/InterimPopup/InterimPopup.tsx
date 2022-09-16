@@ -11,14 +11,14 @@ interface InterimPopupProps {
 	isOpened: boolean
 	width?: string
 	children: React.ReactNode
-    background?: string
+	background?: string
 }
 
 const InterimPopup: FC<InterimPopupProps> = ({
 	onClose,
 	isOpened,
 	width = '300px',
-    background = '#5878A9',
+	background = '#5878A9',
 	children
 }) => {
 	const mainRef = useRef(null)

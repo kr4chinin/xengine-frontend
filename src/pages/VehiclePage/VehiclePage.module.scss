@@ -17,7 +17,7 @@
 		justify-content: space-between;
 		align-items: center;
 		justify-content: space-between;
-        margin-top: 10px;
+		margin-top: 10px;
 
 		.name {
 			font-weight: 700;
@@ -130,8 +130,8 @@
 
 			.characteristics {
 				h3 {
-                    margin-top: 20px;
-                    
+					margin-top: 20px;
+
 					font-weight: 600;
 					font-size: 22px;
 					color: $font-title;
@@ -155,14 +155,14 @@
 					border-radius: 13px;
 
 					padding: 0.5em;
-                    display: flex;
-                    align-items: center;
-                    justify-content: flex-start;
-                    gap: 8px;
+					display: flex;
+					align-items: center;
+					justify-content: flex-start;
+					gap: 8px;
 
-                    svg {
-                        color: $icons-gray;
-                    }
+					svg {
+						color: $icons-gray;
+					}
 				}
 
 				.info-description {
@@ -179,14 +179,12 @@
 					border: 1px solid #000000;
 					border-radius: 13px;
 
-                    display: flex;
-                    align-items: center;
-                    justify-content: flex-start;
-                    gap: 8px;
+					display: flex;
+					align-items: center;
+					justify-content: flex-start;
+					gap: 8px;
 				}
 			}
-
-
 		}
 	}
 }

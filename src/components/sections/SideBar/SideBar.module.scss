@@ -84,16 +84,16 @@
 
 		li:nth-child(4):after {
 			content: 'admin';
-			line-height: 80px;
+			line-height: 88px;
 		}
 
-        li:nth-child(4) {
-            background-color: $primary;
-            svg {
-                width: 35px;
-                height: 35px;
-            }
-        }
+		li:nth-child(4) {
+			background-color: $primary;
+			svg {
+				width: 35px;
+				height: 35px;
+			}
+		}
 
 		li:hover {
 			transform: translateX(-70px);

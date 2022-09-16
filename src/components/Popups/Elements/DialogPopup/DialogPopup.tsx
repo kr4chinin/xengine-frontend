@@ -7,28 +7,31 @@ interface DialogPopupProps {
 	onClose: () => void
 	children: React.ReactNode
 	title: string
-    onAccept: () => void
-    onCancel: () => void
+	onAccept: () => void
+	onCancel: () => void
 }
 
 const DialogPopup: FC<DialogPopupProps> = ({
 	isOpened,
 	onClose,
 	children,
-    title,
-    onAccept,
-    onCancel
+	title,
+	onAccept,
+	onCancel
 }) => {
-
 	return (
 		<OverlayingPopup isOpened={isOpened} onClose={onClose}>
 			<div className={styles.container}>
 				<h3>{title}</h3>
-                {children}
+				{children}
 				<div className={styles.controls}>
-                    <button onClick={onAccept} className={styles.accept}>Accept</button>
-                    <button onClick={onCancel} className={styles.cancel}>Cancel</button>
-                </div>
+					<button onClick={onAccept} className={styles.accept}>
+						Accept
+					</button>
+					<button onClick={onCancel} className={styles.cancel}>
+						Cancel
+					</button>
+				</div>
 			</div>
 		</OverlayingPopup>
 	)

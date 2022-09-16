@@ -1,10 +1,9 @@
 @import '../../../styles/colorPalette';
 
 .container {
-
-    display: flex;
-    height: 60px;
-    align-items: center;
+	display: flex;
+	height: 60px;
+	align-items: center;
 
 	.primary-input {
 		width: 100%;
@@ -15,7 +14,7 @@
 		border: 2px solid $font-gray-title;
 		border-radius: 15px;
 
-        padding: 0.5em;
+		padding: 0.5em;
 	}
 
 	::placeholder {

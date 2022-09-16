@@ -1,9 +1,8 @@
 @import '../../styles/colorPalette';
 
 .header {
-
-    display: flex;
-    align-items: center;
+	display: flex;
+	align-items: center;
 
 	h2 {
 		color: $font-title;
@@ -13,15 +12,15 @@
 		margin-top: 10px;
 	}
 
-    svg {
-        margin-top: 5px;
-        width: 40px;
-        height: 40px;
-        margin-right: 10px;
+	svg {
+		margin-top: 5px;
+		width: 40px;
+		height: 40px;
+		margin-right: 10px;
 
-        color: $icons-gray;
-        fill: $icons-gray;
-    }
+		color: $icons-gray;
+		fill: $icons-gray;
+	}
 }
 
 .body {

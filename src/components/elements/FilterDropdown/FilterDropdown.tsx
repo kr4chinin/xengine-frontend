@@ -8,10 +8,10 @@ import vehicle from '../../../store/VehicleStore'
 import { SortBy } from '../../../utils/SortBy'
 
 interface SortOption {
-    id: number
-    name: string
-    sortKey: SortBy
-    onClick: () => void
+	id: number
+	name: string
+	sortKey: SortBy
+	onClick: () => void
 }
 
 const FilterDropdown = () => {

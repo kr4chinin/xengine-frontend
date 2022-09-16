@@ -89,7 +89,7 @@ const AddToCartButton: FC<AddToCartButtonProps> = observer(
 			setIsInterimDeleteOpen(false)
 		}
 
-        function handleCloseWarning() {
+		function handleCloseWarning() {
 			setIsWarningOpen(false)
 		}
 

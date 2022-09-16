@@ -5,7 +5,6 @@ import SecondaryInput from '../../Elements/SecondaryInput/SecondaryInput'
 import DialogPopup from '../Elements/DialogPopup/DialogPopup'
 import styles from './CreateTypePopup.module.scss'
 import vehicle from '../../../store/VehicleStore'
-import { observer } from 'mobx-react-lite'
 
 interface CreateTypePopupProps {
 	isOpened: boolean

@@ -47,7 +47,7 @@ const VehicleItem: FC<VehicleItemProps> = ({ vehicle }) => {
 					<LoadableImage
 						src={import.meta.env.VITE_API_URL + vehicle.img}
 						alt={vehicle.name}
-                        borderRadius='8px'
+						borderRadius="8px"
 					/>
 					<AddToCartButton vehicleId={vehicle.id} width="40px" height="40px" />
 				</div>

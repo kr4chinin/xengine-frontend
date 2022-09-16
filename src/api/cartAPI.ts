@@ -9,23 +9,23 @@ export const addToCart = async (userId: number, vehicleId: number) => {
 }
 
 export const deleteFromCart = async (userId: number, vehicleId: number) => {
-    const { data } = await $authHost.delete('api/cart', {
-        data: {
-            userId,
-            vehicleId
-        }
-    })
-    return data
+	const { data } = await $authHost.delete('api/cart', {
+		data: {
+			userId,
+			vehicleId
+		}
+	})
+	return data
 }
 
 export const checkIsInCart = async (userId: number, vehicleId: number) => {
-    const { data } = await $authHost.get('api/cart/check', {
-        params: {
-            userId,
-            vehicleId
-        }
-    })
-    return data
+	const { data } = await $authHost.get('api/cart/check', {
+		params: {
+			userId,
+			vehicleId
+		}
+	})
+	return data
 }
 
 export const getCartVehicles = async (userId: number) => {
@@ -34,5 +34,5 @@ export const getCartVehicles = async (userId: number) => {
 			userId
 		}
 	})
-    return data
+	return data
 }

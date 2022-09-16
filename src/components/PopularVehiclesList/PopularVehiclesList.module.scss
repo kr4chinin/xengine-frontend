@@ -1,9 +1,8 @@
 @import '../../styles/colorPalette';
 
 .container {
-
-    display: flex;
-    flex-direction: column;
+	display: flex;
+	flex-direction: column;
 
 	h2 {
 		color: $font-title;
@@ -13,11 +12,11 @@
 		margin-top: 10px;
 	}
 
-    .vehicles-container {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        gap: 32px;
-        margin-top: 40px;
-    }
+	.vehicles-container {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		gap: 32px;
+		margin-top: 40px;
+	}
 }

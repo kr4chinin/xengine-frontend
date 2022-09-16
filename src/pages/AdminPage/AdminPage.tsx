@@ -100,8 +100,8 @@ const AdminPage = () => {
 			<CreateVehiclePopup
 				isOpened={isCreateVehicleOpen}
 				onClose={handleCloseCreateVehicle}
-                openFailInterim={handleOpenCreateVehicleFail}
-                openSuccessInterim={handleOpenCreateVehicleSuccess}
+				openFailInterim={handleOpenCreateVehicleFail}
+				openSuccessInterim={handleOpenCreateVehicleSuccess}
 			/>
 			<InterimPopup
 				isOpened={isCreateVehicleSuccessOpen}
@@ -181,17 +181,17 @@ const AdminPage = () => {
 		setIsCreateVehicleSuccessOpen(false)
 	}
 
-    function handleOpenCreateVehicleSuccess() {
-        setIsCreateVehicleSuccessOpen(true)
-    }
+	function handleOpenCreateVehicleSuccess() {
+		setIsCreateVehicleSuccessOpen(true)
+	}
 
-    function handleCloseCreateVehicleFail() {
-        setIsCreateVehicleFailOpen(false)
-    }
+	function handleCloseCreateVehicleFail() {
+		setIsCreateVehicleFailOpen(false)
+	}
 
-    function handleOpenCreateVehicleFail() {
-        setIsCreateVehicleFailOpen(true)
-    }
+	function handleOpenCreateVehicleFail() {
+		setIsCreateVehicleFailOpen(true)
+	}
 }
 
 export default AdminPage

@@ -87,10 +87,10 @@ const AuthPage = () => {
 				<h2>Authorization</h2>
 				<div className={styles['auth-container']}>
 					{(isRegistrationError || isLoginError) && (
-                        <div className={styles.error}>
-                            <Icon icon={Icons.ERROR} />
-                            <h3>{errorMessage?.response.data.message}</h3>
-                        </div>
+						<div className={styles.error}>
+							<Icon icon={Icons.ERROR} />
+							<h3>{errorMessage?.response.data.message}</h3>
+						</div>
 					)}
 					<div className={styles['input-container']}>
 						<PrimaryInput
@@ -111,7 +111,7 @@ const AuthPage = () => {
 					<PrimaryButton
 						title={isRegistration ? 'Sign up' : 'Log in'}
 						onClick={handleAuth}
-                        isLoading={isLoginLoading || isRegistrationLoading}
+						isLoading={isLoginLoading || isRegistrationLoading}
 					/>
 				</div>
 				<footer>

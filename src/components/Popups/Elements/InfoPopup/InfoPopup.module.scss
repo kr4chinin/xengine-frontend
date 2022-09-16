@@ -13,7 +13,7 @@
 	text-align: start;
 	gap: 20px;
 
-    min-height: 260px;
+	min-height: 260px;
 
 	header {
 		color: $font-title;
@@ -35,7 +35,7 @@
 				transform: scale(1.05);
 			}
 
-            margin-right: 5px;
+			margin-right: 5px;
 		}
 	}
 
@@ -58,14 +58,14 @@
 			border: 1px solid #000000;
 			border-radius: 33px;
 
-            font-size: 16px;
-            transition: 500ms;
+			font-size: 16px;
+			transition: 500ms;
 
-            &:hover {
-                cursor: pointer;
-                background: rgba(144, 238, 144, 0.75);
-                transform: translateY(-3px);
-            }
+			&:hover {
+				cursor: pointer;
+				background: rgba(144, 238, 144, 0.75);
+				transform: translateY(-3px);
+			}
 		}
 	}
 }

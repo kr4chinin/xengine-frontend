@@ -15,8 +15,8 @@
 	transition: 500ms ease-out;
 
 	&:hover {
-        box-shadow: inset 140px 48px 1px 0px $font-light;
-        color: $primary;
-        cursor: pointer;
+		box-shadow: inset 140px 48px 1px 0px $font-light;
+		color: $primary;
+		cursor: pointer;
 	}
 }

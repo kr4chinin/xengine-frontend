@@ -1,4 +1,4 @@
-import {Icon as DefautltIcon} from '@iconify/react'
+import { Icon as DefautltIcon } from '@iconify/react'
 import { FC } from 'react'
 import { Icons } from '../../../../utils/Icons'
 import OverlayingPopup from '../OverlayingPopup/OverlayingPopup'
@@ -32,7 +32,9 @@ const InfoPopup: FC<InfoPopupProps> = ({
 				</header>
 				<div className={styles.body}>{children}</div>
 				<div className={styles['controls-container']}>
-					<button className={styles['continue-btn']} onClick={onClose}>Continue</button>
+					<button className={styles['continue-btn']} onClick={onClose}>
+						Continue
+					</button>
 				</div>
 			</section>
 		</OverlayingPopup>
