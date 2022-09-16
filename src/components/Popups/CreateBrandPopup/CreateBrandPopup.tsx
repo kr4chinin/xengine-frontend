@@ -1,18 +1,18 @@
 import { useMutation } from '@tanstack/react-query'
 import { FC, useState } from 'react'
-import { createType } from '../../../api/vehicleAPI'
+import { createBrand } from '../../../api/vehicleAPI'
 import SecondaryInput from '../../Elements/SecondaryInput/SecondaryInput'
 import DialogPopup from '../Elements/DialogPopup/DialogPopup'
-import styles from './CreateTypePopup.module.scss'
+import styles from './CreateBrandPopup.module.scss'
 
-interface CreateTypePopupProps {
+interface CreateBrandPopupProps {
 	isOpened: boolean
 	onClose: () => void
 	openSuccessInterim: () => void
 	openFailInterim: () => void
 }
 
-const CreateTypePopup: FC<CreateTypePopupProps> = ({
+const CreateBrandPopup: FC<CreateBrandPopupProps> = ({
 	isOpened,
 	onClose,
 	openFailInterim,
@@ -20,7 +20,7 @@ const CreateTypePopup: FC<CreateTypePopupProps> = ({
 }) => {
 	const [name, setName] = useState('')
 
-	const { mutate: mutateType } = useMutation(() => createType(name), {
+	const { mutate: mutateBrand } = useMutation(() => createBrand(name), {
 		onSuccess: () => {
 			openSuccessInterim()
 		},
@@ -34,7 +34,7 @@ const CreateTypePopup: FC<CreateTypePopupProps> = ({
 	}
 
 	function handleAccept() {
-		mutateType()
+		mutateBrand()
 		onClose()
 	}
 
@@ -47,7 +47,7 @@ const CreateTypePopup: FC<CreateTypePopupProps> = ({
 		<DialogPopup
 			isOpened={isOpened}
 			onClose={onClose}
-			title="Create type"
+			title="Create brand"
 			onAccept={handleAccept}
 			onCancel={handleCancel}
 		>
@@ -55,8 +55,8 @@ const CreateTypePopup: FC<CreateTypePopupProps> = ({
 				<SecondaryInput
 					value={name}
 					onChange={handleChangeName}
-					label="Type name"
-					placeholder="Enter type name..."
+					label="Brand name"
+					placeholder="Enter brand name..."
 					type="text"
 				/>
 			</div>
@@ -64,4 +64,4 @@ const CreateTypePopup: FC<CreateTypePopupProps> = ({
 	)
 }
 
-export default CreateTypePopup
+export default CreateBrandPopup

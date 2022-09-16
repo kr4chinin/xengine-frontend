@@ -28,6 +28,11 @@ export const fetchBrand = async (id: number) => {
 	return data
 }
 
+export const createBrand = async (name: string) => {
+	const { data } = await $authHost.post<Brand>('api/brand', { name })
+	return data
+}
+
 export const fetchVehicles = async (
 	typeId: number | null,
 	brandId: number | null,
