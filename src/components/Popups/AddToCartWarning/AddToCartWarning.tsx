@@ -19,11 +19,11 @@ const AddToCartWarning: FC<AddToCartWarningProps> = ({ isOpened, onClose }) => {
 			onClose={onClose}
 			title="Failed to add item to cart"
 			Icon={<Icon icon={Icons.CROSS} onClick={onClose} />}
-			height="227px"
+			height="290px"
 			width="648px"
 		>
 			<p>
-				<b>Unauthorized</b> users can not add items to cart. Press{' '}
+				<b>Unauthorized</b> users can not add items to cart or access it. Press{' '}
 				<Link
 					className={styles.link}
 					to={Routes.REGISTRATION}
