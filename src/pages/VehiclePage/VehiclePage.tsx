@@ -13,6 +13,7 @@ import AddToCartButton from '../../components/Elements/AddToCartButton/AddToCart
 import { Icon } from '@iconify/react'
 import { Icons } from '../../utils/Icons'
 import { convertPrice } from '../../helpers/convertPrice'
+import LoadableImage from '../../components/Elements/LoadableImage/LoadableImage'
 
 const VehiclePage = () => {
 	const { id } = useParams<{ id: string }>()
@@ -85,11 +86,16 @@ const VehiclePage = () => {
 					<div className={styles.content}>
 						<div className={styles['first-column']}>
 							<div className={styles['image-container']}>
-								<img
+								<LoadableImage
 									src={import.meta.env.VITE_API_URL + vehicle?.img}
 									alt={vehicle?.name}
+									borderRadius="12px"
 								/>
-								<AddToCartButton height="52px" width="52px" vehicleId={vehicle.id}/>
+								<AddToCartButton
+									height="52px"
+									width="52px"
+									vehicleId={vehicle.id}
+								/>
 							</div>
 							<div className={styles['first-column-additional']}>
 								<div className={styles.price}>

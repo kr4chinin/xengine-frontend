@@ -13,6 +13,7 @@ import { ThreeDots } from 'react-loader-spinner'
 import { Brand } from '../../types/Brand'
 import { useNavigate } from 'react-router-dom'
 import { Routes } from '../../utils/Routes'
+import LoadableImage from '../Elements/LoadableImage/LoadableImage'
 
 interface VehicleItemProps {
 	vehicle: Vehicle
@@ -43,11 +44,12 @@ const VehicleItem: FC<VehicleItemProps> = ({ vehicle }) => {
 		<div className={styles['global-container']}>
 			<div className={styles.container}>
 				<div className={styles['image-container']}>
-					<img
+					<LoadableImage
 						src={import.meta.env.VITE_API_URL + vehicle.img}
 						alt={vehicle.name}
+                        borderRadius='8px'
 					/>
-					<AddToCartButton vehicleId={vehicle.id} width='40px' height='40px'/>
+					<AddToCartButton vehicleId={vehicle.id} width="40px" height="40px" />
 				</div>
 				<div className={styles.info}>
 					<div className={styles.main}>
@@ -106,7 +108,7 @@ const VehicleItem: FC<VehicleItemProps> = ({ vehicle }) => {
 					</section>
 				</div>
 			</div>
-			<HorizontalLine borderColor="#94a6b7" marginTop='32px'/>
+			<HorizontalLine borderColor="#94a6b7" marginTop="32px" />
 		</div>
 	)
 }

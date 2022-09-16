@@ -6,6 +6,7 @@ import { Icon } from '@iconify/react'
 import { Icons } from '../../utils/Icons'
 import { useNavigate } from 'react-router-dom'
 import { Routes } from '../../utils/Routes'
+import LoadableImage from '../Elements/LoadableImage/LoadableImage'
 
 interface PopularVehicleProps {
 	vehicle: Vehicle
@@ -20,11 +21,12 @@ const PopularVehicle: FC<PopularVehicleProps> = ({ vehicle }) => {
 
 	return (
 		<div className={styles.container}>
-			<img
+			<LoadableImage
 				src={import.meta.env.VITE_API_URL + vehicle.img}
 				alt={vehicle.name}
+				borderRadius="9px"
 			/>
-			<AddToCartButton vehicleId={vehicle.id}/>
+			<AddToCartButton vehicleId={vehicle.id} />
 			<button
 				className={styles['learn-more-btn']}
 				onClick={() => handleNavigateToVehicle(vehicle.id)}
