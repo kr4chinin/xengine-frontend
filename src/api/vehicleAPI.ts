@@ -1,7 +1,7 @@
 import { Brand } from '../types/Brand'
 import { Type } from '../types/Type'
 import { Vehicle } from '../types/Vehicle'
-import { $authHost, $host } from './index'
+import { $host } from './index'
 
 export const fetchTypes = async () => {
     const { data } = await $host.get<Type[]>('api/type')

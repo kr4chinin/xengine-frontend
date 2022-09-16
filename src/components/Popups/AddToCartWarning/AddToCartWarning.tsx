@@ -1,11 +1,10 @@
 import { FC } from 'react'
-import OverlayingPopup from '../OverlayingPopup/OverlayingPopup'
 import styles from './AddToCartWarning.module.scss'
 import { Link } from 'react-router-dom'
 import { Routes } from '../../../utils/Routes'
 import { Icon } from '@iconify/react'
 import { Icons } from '../../../utils/Icons'
-import InfoPopup from '../InfoPopup/InfoPopup'
+import InfoPopup from '../Elements/InfoPopup/InfoPopup'
 
 interface AddToCartWarningProps {
 	onClose: () => void

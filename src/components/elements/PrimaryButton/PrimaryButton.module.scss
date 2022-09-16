@@ -6,7 +6,7 @@
 	align-items: center;
 	justify-content: center;
 
-	width: 231px;
+	min-width: 231px;
 	height: 70px;
 
 	background: $primary;
@@ -17,6 +17,7 @@
 	color: $font-light;
 
 	font-size: 22px;
+    padding: 0 1em 0 1em;
 
 	transition: 500ms ease-out;
 
