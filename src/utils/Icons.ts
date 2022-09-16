@@ -11,5 +11,6 @@ export enum Icons {
     INFO = 'clarity:info-standard-line',
     ERROR = 'codicon:bracket-error',
     CROSS = 'charm:cross',
-    ADMIN_PANEL = 'wpf:administrator'
+    ADMIN_PANEL = 'wpf:administrator',
+    TRASH_BIN = 'ion:trash-bin'
 }

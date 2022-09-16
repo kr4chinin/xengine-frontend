@@ -64,3 +64,32 @@ export const fetchPopularVehicles = async () => {
 	const { data } = await $host.get<Vehicle[]>('api/vehicle/popular')
 	return data
 }
+
+export const createVehicle = async (
+	name: string,
+	price: number,
+	description: string,
+	brandId: number,
+	typeId: number,
+	info: string,
+	img: File | null
+) => {
+	const { data } = await $authHost.post<Vehicle>(
+		'api/vehicle',
+		{
+			name,
+			price,
+			description,
+			brandId,
+			typeId,
+			info,
+			img
+		},
+		{
+			headers: {
+				'Content-Type': 'multipart/form-data'
+			}
+		}
+	)
+	return data
+}

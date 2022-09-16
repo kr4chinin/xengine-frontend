@@ -4,6 +4,7 @@ import HorizontalLine from '../../components/Elements/HorizontalLine/HorizontalL
 import PrimaryButton from '../../components/Elements/PrimaryButton/PrimaryButton'
 import CreateBrandPopup from '../../components/Popups/CreateBrandPopup/CreateBrandPopup'
 import CreateTypePopup from '../../components/Popups/CreateTypePopup/CreateTypePopup'
+import CreateVehiclePopup from '../../components/Popups/CreateVehiclePopup/CreateVehiclePopup'
 import InterimPopup from '../../components/Popups/Elements/InterimPopup/InterimPopup'
 import NavBar from '../../components/Sections/NavBar/NavBar'
 import { Icons } from '../../utils/Icons'
@@ -45,7 +46,10 @@ const AdminPage = () => {
 						onClick={handleOpenCreateBrand}
 						title="Create new brand"
 					/>
-					<PrimaryButton onClick={() => {}} title="Create new vehicle" />
+					<PrimaryButton
+						onClick={handleOpenCreateVehicle}
+						title="Create new vehicle"
+					/>
 				</div>
 			</section>
 
@@ -91,6 +95,28 @@ const AdminPage = () => {
 				width="350px"
 			>
 				Failed to create new brand!
+			</InterimPopup>
+
+			<CreateVehiclePopup
+				isOpened={isCreateVehicleOpen}
+				onClose={handleCloseCreateVehicle}
+                openFailInterim={handleOpenCreateVehicleFail}
+                openSuccessInterim={handleOpenCreateVehicleSuccess}
+			/>
+			<InterimPopup
+				isOpened={isCreateVehicleSuccessOpen}
+				onClose={handleCloseCreateVehicleSuccess}
+				width="360px"
+			>
+				Vehicle created successfully!
+			</InterimPopup>
+			<InterimPopup
+				isOpened={isCreateVehicleFailOpen}
+				onClose={handleCloseCreateVehicleFail}
+				background="#CA3142"
+				width="350px"
+			>
+				Failed to create new vehicle!
 			</InterimPopup>
 		</>
 	)
@@ -142,6 +168,30 @@ const AdminPage = () => {
 	function handleCloseCreateBrandFail() {
 		setIsCreateBrandFailOpen(false)
 	}
+
+	function handleOpenCreateVehicle() {
+		setIsCreateVehicleOpen(true)
+	}
+
+	function handleCloseCreateVehicle() {
+		setIsCreateVehicleOpen(false)
+	}
+
+	function handleCloseCreateVehicleSuccess() {
+		setIsCreateVehicleSuccessOpen(false)
+	}
+
+    function handleOpenCreateVehicleSuccess() {
+        setIsCreateVehicleSuccessOpen(true)
+    }
+
+    function handleCloseCreateVehicleFail() {
+        setIsCreateVehicleFailOpen(false)
+    }
+
+    function handleOpenCreateVehicleFail() {
+        setIsCreateVehicleFailOpen(true)
+    }
 }
 
 export default AdminPage

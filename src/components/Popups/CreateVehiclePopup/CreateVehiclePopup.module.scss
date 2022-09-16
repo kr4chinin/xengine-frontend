@@ -1,0 +1,120 @@
+@import '../../../styles/colorPalette';
+
+.controls {
+    padding: 0 0.5em 0 0.5em;
+	gap: 5px;
+	display: flex;
+	flex-direction: column;
+
+	.selects-container {
+		display: flex;
+		gap: 10px;
+		align-items: center;
+
+		.select-container {
+			display: flex;
+			flex-direction: column;
+			gap: 5px;
+		}
+	}
+
+	.name-price-container {
+		display: flex;
+		gap: 10px;
+		align-items: center;
+	}
+
+	label {
+		font-weight: 600;
+		font-size: 20px;
+		color: $font-title;
+	}
+
+	select {
+		width: 200px;
+		height: 45px;
+
+		font-size: 18px;
+		padding: 0 0.5em 0 0.5em;
+
+		border: 2px solid $font-gray-title;
+		background-color: $secondary;
+		border-radius: 12px;
+	}
+
+	textarea {
+		width: 100%;
+		height: 130px;
+		overflow: hidden;
+
+		font-size: 18px;
+		padding: 0.5em;
+
+		border: 2px solid $font-gray-title;
+		background-color: $secondary;
+		border-radius: 12px;
+
+		resize: none;
+	}
+
+	.file-input {
+		margin-top: 5px;
+		font-size: 16px;
+	}
+
+	.info-container {
+		margin-top: 5px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 10px;
+		height: 150px;
+		overflow: scroll;
+		background-color: lightgray;
+		border-radius: 10px;
+		padding: 1em;
+
+		.add-btn {
+			margin-top: 5px;
+			width: 210px;
+			height: 50px;
+			padding: 0.5em;
+
+			background: rgba(144, 238, 144, 0.717);
+			border: 2px solid rgb(60, 98, 98);
+			box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.25);
+			border-radius: 16px;
+
+			font-size: 16px;
+			transition: 500ms;
+
+			&:hover {
+				cursor: pointer;
+				transform: translateX(4px);
+			}
+		}
+
+		.info-item {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 10px;
+
+			.delete-btn {
+				background-color: transparent;
+				border: none;
+
+				svg {
+					width: 30px;
+					height: 30px;
+					color: $icons-gray;
+					margin-top: 42px;
+				}
+
+				&:hover {
+					cursor: pointer;
+				}
+			}
+		}
+	}
+}

@@ -3,11 +3,12 @@ import styles from './SecondaryInput.module.scss'
 
 interface SecondaryInputProps {
 	label: string
-	value: string
+	value: string | number
 	onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
 	placeholder?: string
-	type?: string
+	type: string
 	width?: string
+	step?: number
 }
 
 const SecondaryInput: FC<SecondaryInputProps> = ({
@@ -15,8 +16,9 @@ const SecondaryInput: FC<SecondaryInputProps> = ({
 	label,
 	onChange,
 	placeholder = 'Enter value...',
-	type = 'text',
-	width = '300px'
+	type,
+	width = '300px',
+	step
 }) => {
 	const id = useId()
 
@@ -26,10 +28,11 @@ const SecondaryInput: FC<SecondaryInputProps> = ({
 			<input
 				id={id}
 				value={value}
-                onChange={onChange}
+				onChange={onChange}
 				placeholder={placeholder}
 				type={type}
 				style={{ width }}
+				step={step ? step : ''}
 			/>
 		</div>
 	)
