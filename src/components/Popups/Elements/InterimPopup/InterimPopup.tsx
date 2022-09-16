@@ -1,10 +1,10 @@
 import { FC, useEffect, useRef } from 'react'
-import Portal from '../../Portal/Portal'
+import Portal from '../../../Portal/Portal'
 import styles from './InterimPopup.module.scss'
 import cl from 'classnames'
 import { Icon } from '@iconify/react'
-import { Icons } from '../../../utils/Icons'
-import { useClickOutside } from '../../../hooks/useClickOutside'
+import { Icons } from '../../../../utils/Icons'
+import { useClickOutside } from '../../../../hooks/useClickOutside'
 
 interface InterimPopupProps {
 	onClose: () => void
@@ -30,7 +30,7 @@ const InterimPopup: FC<InterimPopupProps> = ({
 		if (isOpened) {
 			setTimeout(() => onClose(), 1500)
 		}
-	}, [isOpened])
+	}, [isOpened, onClose])
 
 	return (
 		<Portal onClose={onClose}>

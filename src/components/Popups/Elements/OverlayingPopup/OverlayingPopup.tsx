@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import Portal from '../../Portal/Portal'
+import Portal from '../../../Portal/Portal'
 import styles from './OverlayingPopup.module.scss'
 
 interface OverlayingPopupProps {

@@ -1,6 +1,6 @@
 import {Icon as DefautltIcon} from '@iconify/react'
 import { FC } from 'react'
-import { Icons } from '../../../utils/Icons'
+import { Icons } from '../../../../utils/Icons'
 import OverlayingPopup from '../OverlayingPopup/OverlayingPopup'
 import styles from './InfoPopup.module.scss'
 

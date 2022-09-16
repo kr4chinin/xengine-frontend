@@ -7,7 +7,7 @@ import user from '../../../store/UserStore'
 import { useMutation, useQuery } from '@tanstack/react-query'
 import { addToCart, checkIsInCart, deleteFromCart } from '../../../api/cartAPI'
 import AddToCartWarning from '../../Popups/AddToCartWarning/AddToCartWarning'
-import InterimPopup from '../../Popups/InterimPopup/InterimPopup'
+import InterimPopup from '../../Popups/Elements/InterimPopup/InterimPopup'
 
 interface AddToCartButtonProps {
 	top?: string
