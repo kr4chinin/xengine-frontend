@@ -4,6 +4,7 @@ import { createBrand } from '../../../api/vehicleAPI'
 import SecondaryInput from '../../Elements/SecondaryInput/SecondaryInput'
 import DialogPopup from '../Elements/DialogPopup/DialogPopup'
 import styles from './CreateBrandPopup.module.scss'
+import vehicle from '../../../store/VehicleStore'
 
 interface CreateBrandPopupProps {
 	isOpened: boolean
@@ -21,7 +22,9 @@ const CreateBrandPopup: FC<CreateBrandPopupProps> = ({
 	const [name, setName] = useState('')
 
 	const { mutate: mutateBrand } = useMutation(() => createBrand(name), {
-		onSuccess: () => {
+		onSuccess: data => {
+			const currentBrands = vehicle.brands
+			vehicle.setBrands([...currentBrands, data])
 			openSuccessInterim()
 		},
 		onError: () => {
