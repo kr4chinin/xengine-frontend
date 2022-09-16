@@ -50,9 +50,13 @@ const SideBar: FC<SideBarProps> = ({ isVisible, setIsVisible }) => {
 		}
 	}
 
-    function handleGitHub() {
-        window.open('https://github.com/kr4chinin', '_blank')
-    }
+	function handleGitHub() {
+		window.open('https://github.com/kr4chinin', '_blank')
+	}
+
+	function navigateToAdminPanel() {
+		navigate('/admin')
+	}
 
 	return (
 		<nav className={styles.container}>
@@ -63,10 +67,14 @@ const SideBar: FC<SideBarProps> = ({ isVisible, setIsVisible }) => {
 				<li onClick={handleScrollHome}>
 					<Home />
 				</li>
-				<li onClick={handleGitHub}> 
-                    <GitHub />
+				<li onClick={handleGitHub}>
+					<GitHub />
 				</li>
-				<li className={styles.admin} style={{ display: 'none' }}>
+				<li
+					onClick={navigateToAdminPanel}
+					className={styles.admin}
+					style={{ display: user.user?.role === 'ADMIN' ? '' : 'none' }}
+				>
 					<Cog />
 				</li>
 			</ul>
