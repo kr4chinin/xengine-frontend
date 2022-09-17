@@ -64,7 +64,6 @@ const CartPage = observer(() => {
 				)}
 				<ThreeDots
 					visible={!!!totalPrice}
-					color="#5878a9"
 					height={20}
 					width={45}
 				/>

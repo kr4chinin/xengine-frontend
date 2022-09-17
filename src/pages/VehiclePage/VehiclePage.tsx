@@ -14,6 +14,8 @@ import { Icon } from '@iconify/react'
 import { Icons } from '../../utils/Icons'
 import { convertPrice } from '../../helpers/convertPrice'
 import LoadableImage from '../../components/Elements/LoadableImage/LoadableImage'
+import SetRatingBar from '../../components/Sections/SetRatingBar/SetRatingBar'
+import { getAverageRating, getRating } from '../../api/ratingAPI'
 
 const VehiclePage = () => {
 	const { id } = useParams<{ id: string }>()
@@ -24,6 +26,7 @@ const VehiclePage = () => {
 		isError
 	} = useQuery<Vehicle>(['vehicle', id], () => fetchVehicle(+id!))
 
+	const [vehicleRating, setVehicleRating] = useState(vehicle?.rating || 0)
 	const [isNavBarVisible, setIsNavBarVisible] = useState(false)
 
 	const {
@@ -47,6 +50,16 @@ const VehiclePage = () => {
 		() => fetchBrand(vehicle?.brandId as number),
 		{
 			enabled: !!vehicle
+		}
+	)
+
+	const { refetch: refetchAverageRating } = useQuery(
+		['average-rating', id],
+		() => getAverageRating(+id!),
+		{
+			onSuccess: data => {
+				setVehicleRating(data)
+			}
 		}
 	)
 
@@ -108,7 +121,7 @@ const VehiclePage = () => {
 								<div className={styles.rating}>
 									<p>
 										<span>Rating: </span>
-										{vehicle?.rating}
+										{vehicleRating ? vehicleRating : '0'}
 									</p>
 									<Icon icon={Icons.STAR} />
 								</div>
@@ -120,6 +133,10 @@ const VehiclePage = () => {
 								<h3>Description: </h3>
 								<p>{vehicle?.description}</p>
 							</section>
+							<SetRatingBar
+								vehicleId={+id!}
+								refetchAverageRating={refetchAverageRating}
+							/>
 							<div className={styles.characteristics}>
 								<h3>Characteristics: </h3>
 							</div>
