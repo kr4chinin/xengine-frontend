@@ -1,7 +1,7 @@
-import { useMutation } from '@tanstack/react-query'
+import { useMutation, useQuery } from '@tanstack/react-query'
 import { FC, useId, useState } from 'react'
 import { flushSync } from 'react-dom'
-import { setRating } from '../../../api/ratingAPI'
+import { getRating, setRating } from '../../../api/ratingAPI'
 import styles from './SetRatingBar.module.scss'
 import user from '../../../store/UserStore'
 
@@ -14,8 +14,23 @@ const SetRatingBar: FC<SetRatingBarProps> = ({
 	vehicleId,
 	refetchAverageRating
 }) => {
-	const { mutate } = useMutation(() =>
-		setRating(vehicleId, user.user?.id || -1, currentRating)
+	const { mutate } = useMutation(
+		() => setRating(vehicleId, user.user?.id || -1, currentRating),
+		{
+			onSuccess: () => {
+				refetchAverageRating()
+			}
+		}
+	)
+
+	const { data: fetchedCurrentRating } = useQuery(
+		['current-rating', vehicleId, user.user?.id],
+		() => getRating(vehicleId, user.user?.id || -1),
+		{
+			onSuccess: data => {
+				setCurrentRating(data.rate)
+			}
+		}
 	)
 
 	const star1 = useId()
@@ -44,6 +59,7 @@ const SetRatingBar: FC<SetRatingBarProps> = ({
 					name="rate"
 					value={5}
 					onChange={handleCheck}
+					checked={currentRating === 5}
 				/>
 				<label htmlFor={star5} title="Rate 5">
 					5 stars
@@ -54,6 +70,7 @@ const SetRatingBar: FC<SetRatingBarProps> = ({
 					name="rate"
 					value={4}
 					onChange={handleCheck}
+					checked={currentRating === 4}
 				/>
 				<label htmlFor={star4} title="Rate 4">
 					4 stars
@@ -64,6 +81,7 @@ const SetRatingBar: FC<SetRatingBarProps> = ({
 					name="rate"
 					value={3}
 					onChange={handleCheck}
+					checked={currentRating === 3}
 				/>
 				<label htmlFor={star3} title="Rate 3">
 					3 stars
@@ -74,6 +92,7 @@ const SetRatingBar: FC<SetRatingBarProps> = ({
 					name="rate"
 					value={2}
 					onChange={handleCheck}
+					checked={currentRating === 2}
 				/>
 				<label htmlFor={star2} title="Rate 2">
 					2 stars
@@ -84,6 +103,7 @@ const SetRatingBar: FC<SetRatingBarProps> = ({
 					name="rate"
 					value={1}
 					onChange={handleCheck}
+					checked={currentRating === 1}
 				/>
 				<label htmlFor={star1} title="Rate 1">
 					1 star

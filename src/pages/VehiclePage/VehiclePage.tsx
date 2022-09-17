@@ -15,7 +15,7 @@ import { Icons } from '../../utils/Icons'
 import { convertPrice } from '../../helpers/convertPrice'
 import LoadableImage from '../../components/Elements/LoadableImage/LoadableImage'
 import SetRatingBar from '../../components/Sections/SetRatingBar/SetRatingBar'
-import { getAverageRating, getRating } from '../../api/ratingAPI'
+import { getAverageRating } from '../../api/ratingAPI'
 
 const VehiclePage = () => {
 	const { id } = useParams<{ id: string }>()
@@ -35,7 +35,7 @@ const VehiclePage = () => {
 		isError: isTypeError
 	} = useQuery<Type>(
 		['type', vehicle?.typeId],
-		() => fetchType(vehicle?.typeId as number),
+		() => fetchType(vehicle?.typeId || -1),
 		{
 			enabled: !!vehicle
 		}
@@ -47,7 +47,7 @@ const VehiclePage = () => {
 		isError: isBrandError
 	} = useQuery<Brand>(
 		['brand', vehicle?.brandId],
-		() => fetchBrand(vehicle?.brandId as number),
+		() => fetchBrand(vehicle?.brandId || -1),
 		{
 			enabled: !!vehicle
 		}
