@@ -2,6 +2,7 @@ import styles from './LoadableImage.module.scss'
 import { FC, useEffect, useRef, useState } from 'react'
 import useOnScreen from '../../../hooks/useOnScreen'
 import cn from 'classnames'
+import { flushSync } from 'react-dom'
 
 interface LoadableImageProps {
 	src: string
@@ -30,7 +31,10 @@ const LoadableImage: FC<LoadableImageProps> = ({
 
 		if (imageRef.current) {
 			imageRef.current.onload = () => {
-				setIsLoaded(true)
+                // To synchronize the state update with the DOM update
+				flushSync(() => {
+					setIsLoaded(true)
+				})
 				onLoad()
 			}
 		}

@@ -22,7 +22,7 @@ class VehicleStore {
 		this._selectedBrand = null
 		this._page = 1
 		this._totalCount = 0
-		this._limit = 2
+		this._limit = 5
 		this._sort = ''
 		makeAutoObservable(this)
 	}

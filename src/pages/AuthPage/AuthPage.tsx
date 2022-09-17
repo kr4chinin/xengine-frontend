@@ -95,14 +95,14 @@ const AuthPage = () => {
 					<div className={styles['input-container']}>
 						<PrimaryInput
 							type="text"
-							label="Email"
+							label="Email:"
 							value={email}
 							onChange={handleChangeEmail}
 							placeholder="Enter email..."
 						/>
 						<PrimaryInput
 							type="password"
-							label="Password"
+							label="Password:"
 							value={password}
 							onChange={handleChangePassword}
 							placeholder="Enter password..."
