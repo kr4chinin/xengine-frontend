@@ -7,6 +7,8 @@ import { Icons } from '../../utils/Icons'
 import { useNavigate } from 'react-router-dom'
 import { Routes } from '../../utils/Routes'
 import LoadableImage from '../Elements/LoadableImage/LoadableImage'
+import { useQuery } from '@tanstack/react-query'
+import { getAverageRating } from '../../api/ratingAPI'
 
 interface PopularVehicleProps {
 	vehicle: Vehicle
@@ -18,6 +20,10 @@ const PopularVehicle: FC<PopularVehicleProps> = ({ vehicle }) => {
 	function handleNavigateToVehicle(vehicleId: number) {
 		navigate(Routes.DEVICE + `/${vehicleId}`)
 	}
+
+	const { data: averageRating } = useQuery(['average-rating', vehicle.id], () =>
+		getAverageRating(vehicle.id)
+	)
 
 	return (
 		<div className={styles.container}>
@@ -35,7 +41,7 @@ const PopularVehicle: FC<PopularVehicleProps> = ({ vehicle }) => {
 			</button>
 			<div className={styles.rating}>
 				<p>Rating:</p>
-				<p>{vehicle.rating}</p>
+				<p>{averageRating}</p>
 				<Icon icon={Icons.STAR} />
 			</div>
 		</div>

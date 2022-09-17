@@ -14,6 +14,7 @@ import { Brand } from '../../types/Brand'
 import { useNavigate } from 'react-router-dom'
 import { Routes } from '../../utils/Routes'
 import LoadableImage from '../Elements/LoadableImage/LoadableImage'
+import { getAverageRating } from '../../api/ratingAPI'
 
 interface VehicleItemProps {
 	vehicle: Vehicle
@@ -32,6 +33,10 @@ const VehicleItem: FC<VehicleItemProps> = ({ vehicle }) => {
 		isError: isBrandError
 	} = useQuery<Brand>(['brand', vehicle.brandId], () =>
 		fetchBrand(vehicle.brandId)
+	)
+
+	const { data: averageRating } = useQuery(['average-rating', vehicle.id], () =>
+		getAverageRating(vehicle.id)
 	)
 
 	const navigate = useNavigate()
@@ -91,7 +96,7 @@ const VehicleItem: FC<VehicleItemProps> = ({ vehicle }) => {
 					<div className={styles.secondary}>
 						<div className={styles['rating-container']}>
 							<p>Rating:</p>
-							<p>{vehicle.rating}</p>
+							<p>{averageRating || 0}</p>
 							<Icon icon={Icons.STAR} />
 						</div>
 						<div className={styles['price-container']}>

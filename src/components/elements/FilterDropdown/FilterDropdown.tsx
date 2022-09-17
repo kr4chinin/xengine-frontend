@@ -46,12 +46,6 @@ const FilterDropdown = () => {
 			name: 'Name',
 			sortKey: SortBy.NAME_ASCENDING,
 			onClick: () => vehicle.setSort(SortBy.NAME_ASCENDING)
-		},
-		{
-			id: 3,
-			name: 'Rating',
-			sortKey: SortBy.RATING_DESCENDING,
-			onClick: () => vehicle.setSort(SortBy.RATING_DESCENDING)
 		}
 	]
 
