@@ -19,7 +19,7 @@ const CartPage = observer(() => {
 
 	const [vehicles, setVehicles] = useState<Vehicle[]>([])
 
-	const { isLoading, isError } = useQuery<Vehicle[]>(
+	const { isLoading, isError, refetch: refetchCartVehicles } = useQuery<Vehicle[]>(
 		['cart', user.user?.id],
 		() => getCartVehicles(user.user?.id || -1),
 		{
@@ -53,7 +53,7 @@ const CartPage = observer(() => {
 				</div>
 			)}
 			{!isError && !isLoading && (
-				<VehiclesList vehicles={vehicles} isError={false} isLoading={false} />
+				<VehiclesList vehicles={vehicles} isError={false} isLoading={false} refetchData={refetchCartVehicles}/>
 			)}
 			<div className={styles.total}>
 				<Icon icon={Icons.DOLLAR_BANKNOTE} />

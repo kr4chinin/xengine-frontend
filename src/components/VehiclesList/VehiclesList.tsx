@@ -8,19 +8,21 @@ interface VehicleListProps {
 	vehicles: Vehicle[]
 	isLoading: boolean
 	isError: boolean
+    refetchData?: () => void
 }
 
 const VehiclesList: FC<VehicleListProps> = ({
 	vehicles,
 	isLoading,
-	isError
+	isError,
+    refetchData = () => {}
 }) => {
 	return (
 		<div className={styles.container}>
 			{!isError &&
 				!isLoading &&
 				vehicles?.map(vehicle => (
-					<VehicleItem vehicle={vehicle} key={vehicle.id} />
+					<VehicleItem vehicle={vehicle} key={vehicle.id} refetchData={refetchData}/>
 				))}
 			<Radio
 				colors={['#5878A9', '#ADD1DF', '#5878A9']}

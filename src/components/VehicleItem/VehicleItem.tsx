@@ -18,9 +18,13 @@ import { getAverageRating } from '../../api/ratingAPI'
 
 interface VehicleItemProps {
 	vehicle: Vehicle
+	refetchData?: () => void
 }
 
-const VehicleItem: FC<VehicleItemProps> = ({ vehicle }) => {
+const VehicleItem: FC<VehicleItemProps> = ({
+	vehicle,
+	refetchData = () => {}
+}) => {
 	const {
 		data: type,
 		isLoading: isTypeLoading,
@@ -54,7 +58,12 @@ const VehicleItem: FC<VehicleItemProps> = ({ vehicle }) => {
 						alt={vehicle.name}
 						borderRadius="8px"
 					/>
-					<AddToCartButton vehicleId={vehicle.id} width="40px" height="40px" />
+					<AddToCartButton
+						vehicleId={vehicle.id}
+						width="40px"
+						height="40px"
+						refetchData={refetchData}
+					/>
 				</div>
 				<div className={styles.info}>
 					<div className={styles.main}>
