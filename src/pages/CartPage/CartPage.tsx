@@ -29,8 +29,9 @@ const CartPage = observer(() => {
 		}
 	)
 
-	const { data: totalPrice } = useQuery<number>(['total-price'], () =>
-		getTotalPrice(user.user?.id || -1)
+	const { data: totalPrice, isLoading: isTotalPriceLoading } = useQuery<number>(
+		['total-price'],
+		() => getTotalPrice(user.user?.id || -1)
 	)
 
 	return (
@@ -55,18 +56,14 @@ const CartPage = observer(() => {
 				<VehiclesList vehicles={vehicles} isError={false} isLoading={false} />
 			)}
 			<div className={styles.total}>
-                <Icon icon={Icons.DOLLAR_BANKNOTE}/>
+				<Icon icon={Icons.DOLLAR_BANKNOTE} />
 				<h2>Your total:</h2>
-				{totalPrice && (
-					<h2>
-						<span>{convertPrice(totalPrice.toString())}</span>
-					</h2>
+				{totalPrice ? (
+					<h2>{convertPrice(totalPrice.toString())}</h2>
+				) : (
+					<h2>0</h2>
 				)}
-				<ThreeDots
-					visible={!!!totalPrice}
-					height={20}
-					width={45}
-				/>
+				<ThreeDots visible={isTotalPriceLoading} height={20} width={45} />
 			</div>
 		</div>
 	)
