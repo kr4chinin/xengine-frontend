@@ -1,12 +1,12 @@
 # 🛞 XEngine Store Project – Frontend
 
-This is my **full-stack** e-commerce shop project. Backend located in [this](https://github.com/kr4chinin/xengine-backend) repository. I've used **PERN**
+This is my **full-stack** e-commerce shop project. Backend is located in [this](https://github.com/kr4chinin/xengine-backend) repository. I've used **PERN**
 (PostgreSQL + Express + ReactJS + NodeJS) stack with some additional technologies (TypeScript, Tanstack Query, MobX, JWT Authorization etc.) which will be mentioned later in this document.
 
 ## Introduction 
 
 This is a full-fledged shop project, here I've implemented **JWT** authentification (token stored in the browser's local storage) and two user
-**roles** - ```ADMIN``` and ```USER```. As an unauthorized user you can:
+**roles** - ```ADMIN``` and ```USER```. As an **unauthorized** user you can:
 
 * Navigate to main page and take a look at the popular vehicles or check the whole vehicles list.
 * Navigate to **vehicle page** by pressing on it on the main page and checking its characteristics.
