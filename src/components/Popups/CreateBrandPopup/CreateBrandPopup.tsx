@@ -26,7 +26,7 @@ const CreateBrandPopup: FC<CreateBrandPopupProps> = ({
 			const currentBrands = vehicle.brands
 			vehicle.setBrands([...currentBrands, data])
 			openSuccessInterim()
-            setName('')
+			setName('')
 		},
 		onError: () => {
 			openFailInterim()

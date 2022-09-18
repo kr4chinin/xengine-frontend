@@ -38,10 +38,10 @@ export const getCartVehicles = async (userId: number) => {
 }
 
 export const getTotalPrice = async (userId: number) => {
-    const { data } = await $authHost.get('api/cart/total', {
-        params: {
-            userId
-        }
-    })
-    return data
+	const { data } = await $authHost.get('api/cart/total', {
+		params: {
+			userId
+		}
+	})
+	return data
 }

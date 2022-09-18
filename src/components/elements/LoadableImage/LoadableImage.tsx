@@ -31,7 +31,7 @@ const LoadableImage: FC<LoadableImageProps> = ({
 
 		if (imageRef.current) {
 			imageRef.current.onload = () => {
-                // To synchronize the state update with the DOM update
+				// To synchronize the state update with the DOM update
 				flushSync(() => {
 					setIsLoaded(true)
 				})

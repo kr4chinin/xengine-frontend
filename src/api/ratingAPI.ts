@@ -24,10 +24,10 @@ export const getRating = async (vehicleId: number, userId: number) => {
 }
 
 export const getAverageRating = async (vehicleId: number) => {
-    const { data } = await $host.get<number>('api/rating/', {
-        params: {
-            vehicleId
-        }
-    })
-    return data
+	const { data } = await $host.get<number>('api/rating/', {
+		params: {
+			vehicleId
+		}
+	})
+	return data
 }

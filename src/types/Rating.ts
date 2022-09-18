@@ -1,5 +1,5 @@
 export type Rating = {
-    userId: number
-    vehicleId: number
-    rate: number
+	userId: number
+	vehicleId: number
+	rate: number
 }

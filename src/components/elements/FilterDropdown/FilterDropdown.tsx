@@ -40,18 +40,18 @@ const FilterDropdown = () => {
 			name: 'Price',
 			sortKey: SortBy.PRICE_DESCENDING,
 			onClick: () => {
-                vehicle.setSort(SortBy.PRICE_DESCENDING)
-                vehicle.setPage(1)
-            }
+				vehicle.setSort(SortBy.PRICE_DESCENDING)
+				vehicle.setPage(1)
+			}
 		},
 		{
 			id: 2,
 			name: 'Name',
 			sortKey: SortBy.NAME_ASCENDING,
 			onClick: () => {
-                vehicle.setSort(SortBy.NAME_ASCENDING)
-                vehicle.setPage(1)
-            }
+				vehicle.setSort(SortBy.NAME_ASCENDING)
+				vehicle.setPage(1)
+			}
 		}
 	]
 

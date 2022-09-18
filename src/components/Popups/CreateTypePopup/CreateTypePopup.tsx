@@ -26,7 +26,7 @@ const CreateTypePopup: FC<CreateTypePopupProps> = ({
 			openSuccessInterim()
 			const currentTypes = vehicle.types
 			vehicle.setTypes([...currentTypes, data])
-            setName('')
+			setName('')
 		},
 		onError: () => {
 			openFailInterim()

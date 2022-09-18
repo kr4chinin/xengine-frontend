@@ -7,7 +7,7 @@ export enum Icons {
 	SHOPPING_CART_ADD = 'carbon:shopping-cart-plus',
 	SHOPPING_CART_DELETE = 'carbon:shopping-cart-minus',
 	DOLLAR_CIRCLE = 'ant-design:dollar-circle-filled',
-    DOLLAR_BANKNOTE = 'emojione-monotone:dollar-banknote',
+	DOLLAR_BANKNOTE = 'emojione-monotone:dollar-banknote',
 	COG = 'icomoon-free:cog',
 	INFO = 'clarity:info-standard-line',
 	ERROR = 'codicon:bracket-error',

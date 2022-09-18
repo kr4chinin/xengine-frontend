@@ -15,7 +15,7 @@ interface AddToCartButtonProps {
 	width?: string
 	height?: string
 	vehicleId: number
-    refetchData?: () => void
+	refetchData?: () => void
 }
 
 const AddToCartButton: FC<AddToCartButtonProps> = observer(
@@ -25,7 +25,7 @@ const AddToCartButton: FC<AddToCartButtonProps> = observer(
 		width = '45px',
 		height = '45px',
 		vehicleId,
-        refetchData = () => {}
+		refetchData = () => {}
 	}) => {
 		const [isWarningOpen, setIsWarningOpen] = useState(false)
 
@@ -61,7 +61,7 @@ const AddToCartButton: FC<AddToCartButtonProps> = observer(
 				onSuccess: () => {
 					setIsInterimDeleteOpen(true)
 					refetch()
-                    refetchData()
+					refetchData()
 				}
 			}
 		)
