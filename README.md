@@ -40,6 +40,10 @@ This is how this process looks like:
 
 https://user-images.githubusercontent.com/103210607/190911567-d346dee1-5497-4454-bfa4-8acbbb393afc.mp4
 
+To optimize image loading process I've created ```<LoadableImage />``` component, it will load image only if it is visible, if it is visible but not fully loaded - it will show skeleton loading animation:
+
+![ImageLoading](https://user-images.githubusercontent.com/103210607/190919432-8a292ea7-cd21-4b82-9e24-0f7c8349cbef.gif)
+
 Moreover, there are lots of smooth animations and dialog / info pop-ups to make better UX. To read **more information** about technical side of this app check
 *README.md* in the [backend repository](https://github.com/kr4chinin/xengine-backend).
 
