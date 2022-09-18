@@ -98,6 +98,13 @@ const CreateVehiclePopup: FC<CreateVehiclePopupProps> = ({
 		{
 			onSuccess: () => {
 				openSuccessInterim()
+
+				// Nullify all fields when vehicle created
+				setName('')
+				setPrice(0)
+				setDescription('')
+				setInfo([])
+				setFile(null)
 			},
 			onError: () => {
 				if (!typeId || !brandId || !name || !price || !description || !file) {

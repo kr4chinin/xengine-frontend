@@ -122,7 +122,7 @@ const VehicleItem: FC<VehicleItemProps> = ({
 					</section>
 				</div>
 			</div>
-			<HorizontalLine borderColor="#94a6b7" marginTop="32px" />
+			<HorizontalLine marginTop="32px" />
 		</div>
 	)
 }
